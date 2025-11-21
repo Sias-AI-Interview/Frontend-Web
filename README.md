@@ -1,16 +1,51 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Documentation Tamplate
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Folder Structure
+``` bash
+src/
+├─ assets/        # gambar, ikon, svg
+├─ components/    # semua komponen reusable
+├─ hooks/         # custom hooks
+├─ libs/          # helper, api, utils
+├─ servers/       # api services / queries
+├─ validations/   # yup schemas
+```
+Eazy Command to generate Folder:
 
-## React Compiler
+``` bash 
+mkdir -p src/{assets,components,hooks,libs,servers,validations}
+```
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### state management
+``` bash pnpm add zustand 
+```
 
-## Expanding the ESLint configuration
+### data fetching & caching
+``` bash pnpm add @tanstack/react-query
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### forms + validation
+``` bash pnpm add react-hook-form yup @hookform/resolvers
+```
+
+### routing
+``` bash pnpm add react-router-dom
+```
+
+### animation
+``` bash pnpm add @react-spring/web
+```
+
+### testing
+``` bash pnpm add -D vitest jsdom @testing-library/react @testing-library/jest-dom
+```
+
+### storybook
+``` bash pnpm add -D storybook @storybook/react @storybook/addon-actions @storybook/addon-essentials
+```
+
