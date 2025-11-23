@@ -1,16 +1,15 @@
+import Navbar from "./components/navigation/Navbar.jsx";
+import Home from "./pages/Landing.jsx";
+import AnimatedBG from "./components/animated/Radial.jsx";
 
-
-function App() {
-
+export default function App() {
   return (
-    <>
-      <div>
-        <h1 className="font-heading text-3xl font-bold underline">
-          Hello world!
-        </h1>
+    <div className="relative min-h-screen w-full">
+      <AnimatedBG />
+      <Navbar />
+      <div className="p-8">
+        <Home />
       </div>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App

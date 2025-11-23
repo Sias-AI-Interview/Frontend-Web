@@ -1,0 +1,17 @@
+{
+    "navbar": {
+        "products": {
+            "title": "Produk",
+            "items": {
+                "product1": "Produk 1",
+                "product2": "Produk 2",
+                "product3": "Produk 3"
+            }
+        },
+        "about": "Tentang Kami",
+        "login": "Masuk",
+        "signup": "Daftar"
+    },
+    "welcome": "Selamat Datang",
+    "desc": "Halaman ini diterjemahkan secara otomatis."
+}

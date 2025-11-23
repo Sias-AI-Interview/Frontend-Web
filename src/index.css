@@ -58,10 +58,22 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
+
+.radial-spot {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+  background: radial-gradient(circle, #6EACDA 0%, transparent 70%);
+  opacity: 0.25;
+  filter: blur(120px);
+  border-radius: 50%;
+}
+
 
 body {
   font-family: var(--font-body);

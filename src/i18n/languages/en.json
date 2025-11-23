@@ -1,0 +1,17 @@
+{
+  "navbar" : {
+    "products": {
+        "title": "Products",
+        "items": {
+            "product1": "Product 1",
+            "product2": "Product 2",
+            "product3": "Product 3"
+        }
+    },
+    "about": "About Us",
+    "login": "Login",
+    "signup": "Sign Up"
+  },
+  "welcome": "Welcome",
+  "desc": "This page is automatically translated."
+}

@@ -1,13 +1,24 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sias</title>
-  </head>
-  <body>
-    <div id="root-sias"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="description" content="Multi-language auto translation page">
+  <link rel="alternate" hreflang="en" href="/?lang=en" />
+  <link rel="alternate" hreflang="id" href="/?lang=id" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sias</title>
+</head>
+
+<body>
+  <div id="root-sias"></div>
+  <script type="module" src="/src/main.jsx">
+    document.title = dict.appTitle;
+    document
+  .querySelector("meta[name='description']")
+  ?.setAttribute("content", dict.seoDescription);
+  </script>
+</body>
+
 </html>

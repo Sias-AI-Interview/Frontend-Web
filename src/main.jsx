@@ -6,6 +6,7 @@ import App from './App.jsx'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from './libs/reactQueryClient.js'
 import { BrowserRouter } from 'react-router-dom';
+import "./i18n/i18n";
 
 createRoot(document.getElementById('root-sias')).render(
   <React.StrictMode>
