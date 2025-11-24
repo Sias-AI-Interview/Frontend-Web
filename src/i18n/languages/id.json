@@ -1,17 +1,22 @@
 {
     "navbar": {
         "products": {
-            "title": "Produk",
+            "title": "Produk Kami",
             "items": {
                 "product1": "Produk 1",
                 "product2": "Produk 2",
                 "product3": "Produk 3"
             }
         },
+        "howuse": "Cara Penggunaan",
         "about": "Tentang Kami",
         "login": "Masuk",
         "signup": "Daftar"
     },
-    "welcome": "Selamat Datang",
-    "desc": "Halaman ini diterjemahkan secara otomatis."
+    "hero": {
+        "thisApp": "SIAS",
+        "title": "Sistem Penilaian Wawancara Cerdas",
+        "subtitle": "Sistem Penilaian **Wawancara AI** untuk Mempercepat Seleksi Kandidat secara **Objektif** dan **Efisien**.",
+        "getStarted": "Mulai Sekarang"
+    }
 }

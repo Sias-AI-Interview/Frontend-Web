@@ -1,17 +1,22 @@
 {
-  "navbar" : {
+  "navbar": {
     "products": {
-        "title": "Products",
-        "items": {
-            "product1": "Product 1",
-            "product2": "Product 2",
-            "product3": "Product 3"
-        }
+      "title": "Products",
+      "items": {
+        "product1": "Product 1",
+        "product2": "Product 2",
+        "product3": "Product 3"
+      }
     },
+    "howuse": "How to Use",
     "about": "About Us",
     "login": "Login",
     "signup": "Sign Up"
   },
-  "welcome": "Welcome",
-  "desc": "This page is automatically translated."
+  "hero": {
+    "thisApp": "SIAS",
+    "title": "Smart Interview Assessment System",
+    "subtitle": "**AI-Driven Interview** Scoring System to Accelerate Candidate Selection with **Objective** and **Efficient Evaluation**.",
+    "getStarted": "Get Started"
+  }
 }

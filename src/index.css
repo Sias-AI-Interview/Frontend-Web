@@ -61,19 +61,29 @@
   box-sizing: border-box;
 }
 
-.radial-spot {
+.radial-bg {
   position: absolute;
-  top: 40%;
-  left: 50%;
-  width: 900px;
-  height: 900px;
+  inset: 0;
+  background:
+    radial-gradient(circle at 60% 20%,
+      #6EACDA 0%,
+      rgba(110, 172, 218, 0.4) 30%,
+      rgba(115, 115, 115, 0.25) 60%,
+      rgba(115, 115, 115, 0) 100%);
+  animation: slow-move 6s ease-in-out infinite alternate;
   pointer-events: none;
-  background: radial-gradient(circle, #6EACDA 0%, transparent 70%);
-  opacity: 0.25;
-  filter: blur(120px);
-  border-radius: 50%;
+  z-index: -1;
 }
 
+@keyframes slow-move {
+  0% {
+    background-position: 60% 20%;
+  }
+
+  100% {
+    background-position: 40% 30%;
+  }
+}
 
 body {
   font-family: var(--font-body);
