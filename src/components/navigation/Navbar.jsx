@@ -125,10 +125,10 @@ export default function Navbar() {
                     </nav>
 
                     <div className="flex items-center gap-3">
-                        <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm font-medium text-gray-200 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
+                        <button className="rounded cursor-pointer border border-cyan-400/50 px-6 py-2 text-sm font-medium text-gray-200 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
                             {t("navbar.login")}
                         </button>
-                        <button className="rounded bg-[#021526] px-6 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#021526]/40 hover:shadow-lg hover:shadow-[#021526]/30">
+                        <button className="rounded cursor-pointer bg-[#021526] px-6 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#021526]/40 hover:shadow-lg hover:shadow-[#021526]/30">
                             {t("navbar.signup")}
                         </button>
                     </div>

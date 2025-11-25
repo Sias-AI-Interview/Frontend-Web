@@ -17,6 +17,12 @@
         "thisApp": "SIAS",
         "title": "Sistem Penilaian Wawancara Cerdas",
         "subtitle": "Sistem Penilaian **Wawancara AI** untuk Mempercepat Seleksi Kandidat secara **Objektif** dan **Efisien**.",
-        "getStarted": "Mulai Sekarang"
+        "getStarted": "Mulai Sekarang",
+        "scrollDown": "Gulir ke Bawah",
+        "discoverMore": "Temukan Lebih Banyak"
+    },
+    "worldMap": {
+        "title": "Model LLM Global Kami",
+        "subtitle": "Kami memanfaatkan Large Language Model (LLM) yang didistribusikan secara global untuk memastikan kinerja dan keandalan optimal bagi pengguna di seluruh dunia. Infrastruktur kami dirancang untuk memberikan akses yang mulus dan latensi rendah, di mana pun Anda berada."
     }
 }

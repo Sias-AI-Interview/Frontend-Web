@@ -75,6 +75,23 @@
   z-index: -1;
 }
 
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: .7;
+  }
+
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 3s linear infinite;
+}
+
+
 @keyframes slow-move {
   0% {
     background-position: 60% 20%;

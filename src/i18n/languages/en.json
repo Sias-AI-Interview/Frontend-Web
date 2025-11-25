@@ -17,6 +17,12 @@
     "thisApp": "SIAS",
     "title": "Smart Interview Assessment System",
     "subtitle": "**AI-Driven Interview** Scoring System to Accelerate Candidate Selection with **Objective** and **Efficient Evaluation**.",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "scrollDown": "Scroll Down",
+    "discoverMore": "Discover More"
+  },
+  "worldMap": {
+    "title": "Our Global LLM Model",
+    "subtitle": "We leverage a globally distributed Large Language Model (LLM) to ensure optimal performance and reliability for users worldwide. Our infrastructure is designed to provide seamless access and low latency, no matter where you are."
   }
 }
