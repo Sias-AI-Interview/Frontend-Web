@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { BsMouse } from "react-icons/bs";
 
-export default function HeroSection() {
+export default function     HeroSection() {
     const { t } = useTranslation();
 
     const appWrapperRef = useRef(null);

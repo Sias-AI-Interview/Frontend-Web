@@ -16,13 +16,247 @@
     "hero": {
         "thisApp": "SIAS",
         "title": "Sistem Penilaian Wawancara Cerdas",
-        "subtitle": "Sistem Penilaian **Wawancara AI** untuk Mempercepat Seleksi Kandidat secara **Objektif** dan **Efisien**.",
+        "subtitle": "Sistem Penilaian **Wawancara Berbasis AI** untuk Mempercepat Seleksi Kandidat secara **Objektif** dan **Efisien**.",
         "getStarted": "Mulai Sekarang",
         "scrollDown": "Gulir ke Bawah",
-        "discoverMore": "Temukan Lebih Banyak"
+        "discoverMore": "Pelajari Lebih Lanjut"
     },
-    "worldMap": {
-        "title": "Model LLM Global Kami",
-        "subtitle": "Kami memanfaatkan Large Language Model (LLM) yang didistribusikan secara global untuk memastikan kinerja dan keandalan optimal bagi pengguna di seluruh dunia. Infrastruktur kami dirancang untuk memberikan akses yang mulus dan latensi rendah, di mana pun Anda berada."
+    "features": {
+        "badge": "Fitur",
+        "title": "Mengapa Memilih",
+        "subtitle": "Temukan fitur-fitur canggih yang menjadikan SIAS sebagai platform penilaian wawancara berbasis AI terdepan.",
+        "items": {
+            "aiAnalysis": {
+                "title": "Analisis Berbasis AI",
+                "description": "Manfaatkan teknologi LLM canggih untuk menganalisis jawaban kandidat dengan pemahaman dan ketepatan mirip manusia."
+            },
+            "objective": {
+                "title": "Penilaian Objektif",
+                "description": "Hilangkan bias dengan kriteria evaluasi yang konsisten dan berbasis data untuk memastikan penilaian adil bagi semua kandidat."
+            },
+            "timeEfficient": {
+                "title": "Efisiensi Waktu",
+                "description": "Kurangi waktu evaluasi wawancara hingga 80% tanpa mengorbankan kualitas penilaian."
+            },
+            "reports": {
+                "title": "Laporan Mendetail",
+                "description": "Dapatkan wawasan lengkap dengan rincian skor, kelebihan, dan area peningkatan untuk setiap kandidat."
+            },
+            "security": {
+                "title": "Aman & Privat",
+                "description": "Keamanan tingkat enterprise memastikan seluruh data wawancara dan informasi kandidat tetap rahasia dan terlindungi."
+            },
+            "realtime": {
+                "title": "Umpan Balik Real-time",
+                "description": "Terima hasil evaluasi instan dan wawasan yang dapat langsung ditindaklanjuti setelah sesi wawancara."
+            }
+        }
+    },
+    "howToUse": {
+        "badge": "Cara Penggunaan",
+        "title": "Mulai Dalam",
+        "highlight": "Hitungan Menit",
+        "subtitle": "Ikuti langkah-langkah sederhana ini untuk mentransformasi proses rekrutmen Anda dengan penilaian wawancara berbasis AI.",
+        "video": {
+            "watchDemo": "Tonton Demo",
+            "duration": "Video 2 menit"
+        },
+        "steps": {
+            "step01": {
+                "number": "01",
+                "title": "Buat Sesi Wawancara",
+                "description": "Atur parameter wawancara Anda, termasuk posisi pekerjaan, keterampilan yang dibutuhkan, dan kriteria evaluasi."
+            },
+            "step02": {
+                "number": "02",
+                "title": "Lakukan Wawancara",
+                "description": "Biarkan kandidat menjawab pertanyaan sementara AI kami menangkap dan memproses respons secara real-time."
+            },
+            "step03": {
+                "number": "03",
+                "title": "Analisis AI",
+                "description": "SIAS menganalisis respons menggunakan teknologi LLM untuk mengevaluasi keterampilan, komunikasi, dan kecocokan."
+            },
+            "step04": {
+                "number": "04",
+                "title": "Dapatkan Hasil",
+                "description": "Terima laporan penilaian lengkap dengan wawasan yang dapat digunakan untuk membuat keputusan rekrutmen yang tepat."
+            }
+        }
+    },
+    "stats": {
+        "badge": "Kinerja Terpercaya",
+        "title": "Dampak Kuat dengan Hasil Nyata",
+        "subtitle": "Platform kami memberikan peningkatan nyata yang terukur dan telah dipercaya oleh berbagai organisasi.",
+        "items": {
+            "stat1": "Pengguna Aktif",
+            "stat2": "Tingkat Kepuasan",
+            "stat3": "Pemrosesan Lebih Cepat",
+            "stat4": "Mitra Bisnis"
+        }
+    },
+    "testimonials": {
+        "badge": "Testimoni",
+        "title": {
+            "normal": "Dipercaya oleh",
+            "highlight": "Para Pemimpin Industri"
+        },
+        "subtitle": "Lihat apa yang dikatakan para profesional HR dan perusahaan tentang SIAS.",
+        "items": [
+            {
+                "key": "sarah",
+                "name": "Sarah Chen",
+                "role": "Direktur HR",
+                "company": "TechCorp Indonesia",
+                "content": "SIAS telah merevolusi proses rekrutmen kami. Waktu evaluasi berkurang hingga 75% dengan kualitas kandidat yang jauh lebih baik.",
+                "rating": 5
+            },
+            {
+                "key": "ahmad",
+                "name": "Ahmad Rizki",
+                "role": "Lead Talent Acquisition",
+                "company": "StartupHub",
+                "content": "Analisis berbasis AI-nya sangat akurat. SIAS menangkap detail respons kandidat yang sering kali terlewat saat penilaian manual.",
+                "rating": 5
+            },
+            {
+                "key": "lisa",
+                "name": "Lisa Wijaya",
+                "role": "CEO",
+                "company": "Digital Solutions",
+                "content": "Sebagai startup yang tumbuh cepat, kami butuh solusi yang dapat diskalakan. SIAS membantu kami mengevaluasi 500+ kandidat dalam satu bulan dengan kualitas konsisten.",
+                "rating": 5
+            }
+        ]
+    },
+    "pricing": {
+        "badge": "Harga",
+        "title": "Harga yang <gradient>Transparan</gradient> & Sederhana",
+        "subtitle": "Pilih paket yang sesuai dengan kebutuhan rekrutmen Anda. Tanpa biaya tersembunyi.",
+        "plans": {
+            "starter": {
+                "name": "Starter",
+                "description": "Cocok untuk tim kecil yang baru memulai",
+                "features": [
+                    "Hingga 10 wawancara/bulan",
+                    "Analisis AI dasar",
+                    "Dukungan email",
+                    "Laporan standar"
+                ],
+                "button": "Mulai Sekarang"
+            },
+            "pro": {
+                "name": "Professional",
+                "description": "Terbaik untuk perusahaan berkembang",
+                "features": [
+                    "Hingga 100 wawancara/bulan",
+                    "Analisis AI lanjutan",
+                    "Dukungan prioritas",
+                    "Laporan & insight detail",
+                    "Kriteria evaluasi khusus",
+                    "Akses API"
+                ],
+                "popular": "Paling Populer",
+                "button": "Mulai Sekarang"
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "description": "Untuk organisasi besar",
+                "features": [
+                    "Wawancara tanpa batas",
+                    "Kemampuan AI penuh",
+                    "Dukungan 24/7",
+                    "Solusi white-label",
+                    "Integrasi khusus",
+                    "Deploy on-premise",
+                    "Jaminan SLA"
+                ],
+                "button": "Hubungi Sales"
+            }
+        }
+    },
+    "cta": {
+        "badge": "Mulai Uji Coba Gratis Anda Hari Ini",
+        "title": "Siap Mengubah Proses Rekrutmen Anda?",
+        "desc": "Bergabung dengan 500+ perusahaan yang sudah menggunakan SIAS untuk menemukan kandidat terbaik dengan lebih cepat dan efisien.",
+        "btnStart": "Mulai Gratis",
+        "btnDemo": "Jadwalkan Demo",
+        "footnote": "Tidak perlu kartu kredit. Mulai dengan 10 wawancara gratis."
+    },
+    "footer": {
+        "brandDesc": "Smart Interview Assessment System - solusi berbasis AI untuk evaluasi kandidat yang objektif dan efisien.",
+        "social": {
+            "twitter": "Twitter",
+            "linkedin": "LinkedIn",
+            "github": "GitHub",
+            "mail": "Email"
+        },
+        "product": {
+            "title": "Produk",
+            "links": [
+                {
+                    "label": "Fitur",
+                    "href": "#features"
+                },
+                {
+                    "label": "Harga",
+                    "href": "#pricing"
+                },
+                {
+                    "label": "API",
+                    "href": "#api"
+                },
+                {
+                    "label": "Integrasi",
+                    "href": "#integrations"
+                }
+            ]
+        },
+        "company": {
+            "title": "Perusahaan",
+            "links": [
+                {
+                    "label": "Tentang",
+                    "href": "#about"
+                },
+                {
+                    "label": "Blog",
+                    "href": "#blog"
+                },
+                {
+                    "label": "Karier",
+                    "href": "#careers"
+                },
+                {
+                    "label": "Kontak",
+                    "href": "#contact"
+                }
+            ]
+        },
+        "resources": {
+            "title": "Sumber Daya",
+            "links": [
+                {
+                    "label": "Dokumentasi",
+                    "href": "#docs"
+                },
+                {
+                    "label": "Pusat Bantuan",
+                    "href": "#help"
+                },
+                {
+                    "label": "Kebijakan Privasi",
+                    "href": "#privacy"
+                },
+                {
+                    "label": "Syarat Layanan",
+                    "href": "#terms"
+                }
+            ]
+        },
+        "bottom": {
+            "rights": "Hak cipta dilindungi undang-undang.",
+            "made": "Dibuat dengan inovasi berbasis AI"
+        }
     }
 }

@@ -21,8 +21,242 @@
     "scrollDown": "Scroll Down",
     "discoverMore": "Discover More"
   },
-  "worldMap": {
-    "title": "Our Global LLM Model",
-    "subtitle": "We leverage a globally distributed Large Language Model (LLM) to ensure optimal performance and reliability for users worldwide. Our infrastructure is designed to provide seamless access and low latency, no matter where you are."
+  "features": {
+    "badge": "Features",
+    "title": "Why Choose",
+    "subtitle": "Discover the powerful features that make SIAS the leading AI-driven interview assessment platform.",
+    "items": {
+      "aiAnalysis": {
+        "title": "AI-Powered Analysis",
+        "description": "Leverage advanced LLM technology to analyze candidate responses with human-like understanding and precision."
+      },
+      "objective": {
+        "title": "Objective Scoring",
+        "description": "Eliminate bias with consistent, data-driven evaluation criteria that ensures fair assessment for all candidates."
+      },
+      "timeEfficient": {
+        "title": "Time Efficient",
+        "description": "Reduce interview evaluation time by up to 80% while maintaining high-quality assessment standards."
+      },
+      "reports": {
+        "title": "Detailed Reports",
+        "description": "Get comprehensive insights with detailed scoring breakdowns, strengths, and areas of improvement for each candidate."
+      },
+      "security": {
+        "title": "Secure & Private",
+        "description": "Enterprise-grade security ensures all interview data and candidate information remains confidential and protected."
+      },
+      "realtime": {
+        "title": "Real-time Feedback",
+        "description": "Receive instant evaluation results and actionable insights immediately after each interview session."
+      }
+    }
+  },
+  "howToUse": {
+    "badge": "How to Use",
+    "title": "Get Started in",
+    "highlight": "Minutes",
+    "subtitle": "Follow these simple steps to transform your hiring process with AI-powered interview assessments.",
+    "video": {
+      "watchDemo": "Watch Demo",
+      "duration": "2 min video"
+    },
+    "steps": {
+      "step01": {
+        "number": "01",
+        "title": "Create Interview Session",
+        "description": "Set up your interview parameters, including job role, required skills, and evaluation criteria."
+      },
+      "step02": {
+        "number": "02",
+        "title": "Conduct Interview",
+        "description": "Let candidates answer questions while our AI captures and processes their responses in real-time."
+      },
+      "step03": {
+        "number": "03",
+        "title": "AI Analysis",
+        "description": "SIAS analyzes responses using advanced LLM technology to evaluate skills, communication, and fit."
+      },
+      "step04": {
+        "number": "04",
+        "title": "Get Results",
+        "description": "Receive comprehensive scoring reports with actionable insights to make informed hiring decisions."
+      }
+    }
+  },
+  "stats": {
+    "badge": "Trusted Performance",
+    "title": "Strong Impact Through Real Results",
+    "subtitle": "Our platform delivers measurable improvements backed by real data and trusted by organizations worldwide.",
+    "items": {
+      "stat1": "Active Users",
+      "stat2": "Customer Satisfaction",
+      "stat3": "Faster Processing",
+      "stat4": "Business Partners"
+    }
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": {
+      "normal": "Trusted by",
+      "highlight": "Industry Leaders"
+    },
+    "subtitle": "See what HR professionals and companies are saying about SIAS.",
+    "items": [
+      {
+        "key": "sarah",
+        "name": "Sarah Chen",
+        "role": "HR Director",
+        "company": "TechCorp Indonesia",
+        "content": "SIAS has transformed our hiring process. We've reduced our evaluation time by 75% while improving the quality of our hires significantly.",
+        "rating": 5
+      },
+      {
+        "key": "ahmad",
+        "name": "Ahmad Rizki",
+        "role": "Talent Acquisition Lead",
+        "company": "StartupHub",
+        "content": "The AI-powered analysis is incredibly accurate. It catches nuances in candidate responses that we might miss during manual review.",
+        "rating": 5
+      },
+      {
+        "key": "lisa",
+        "name": "Lisa Wijaya",
+        "role": "CEO",
+        "company": "Digital Solutions",
+        "content": "As a fast-growing startup, we needed a scalable solution. SIAS helped us evaluate 500+ candidates in just one month with consistent quality.",
+        "rating": 5
+      }
+    ]
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Simple, <gradient>Transparent</gradient> Pricing",
+    "subtitle": "Choose the plan that fits your hiring needs. No hidden fees.",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Perfect for small teams getting started",
+        "features": [
+          "Up to 10 interviews/month",
+          "Basic AI analysis",
+          "Email support",
+          "Standard reports"
+        ],
+        "button": "Get Started"
+      },
+      "pro": {
+        "name": "Professional",
+        "description": "Best for growing companies",
+        "features": [
+          "Up to 100 interviews/month",
+          "Advanced AI analysis",
+          "Priority support",
+          "Detailed reports & insights",
+          "Custom evaluation criteria",
+          "API access"
+        ],
+        "popular": "Most Popular",
+        "button": "Get Started"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For large organizations",
+        "features": [
+          "Unlimited interviews",
+          "Full AI capabilities",
+          "24/7 dedicated support",
+          "White-label solution",
+          "Custom integrations",
+          "On-premise deployment",
+          "SLA guarantee"
+        ],
+        "button": "Contact Sales"
+      }
+    }
+  },
+  "cta": {
+    "badge": "Start Your Free Trial Today",
+    "title": "Ready to Transform Your Hiring Process?",
+    "desc": "Join 500+ companies already using SIAS to find the best candidates faster and more efficiently.",
+    "btnStart": "Get Started Free",
+    "btnDemo": "Schedule Demo",
+    "footnote": "No credit card required. Start with 10 free interviews."
+  },
+  "footer": {
+    "brandDesc": "Smart Interview Assessment System — an AI-powered solution for objective and efficient candidate evaluation.",
+    "social": {
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "mail": "Email"
+    },
+    "product": {
+      "title": "Product",
+      "links": [
+        {
+          "label": "Features",
+          "href": "#features"
+        },
+        {
+          "label": "Pricing",
+          "href": "#pricing"
+        },
+        {
+          "label": "API",
+          "href": "#api"
+        },
+        {
+          "label": "Integrations",
+          "href": "#integrations"
+        }
+      ]
+    },
+    "company": {
+      "title": "Company",
+      "links": [
+        {
+          "label": "About",
+          "href": "#about"
+        },
+        {
+          "label": "Blog",
+          "href": "#blog"
+        },
+        {
+          "label": "Careers",
+          "href": "#careers"
+        },
+        {
+          "label": "Contact",
+          "href": "#contact"
+        }
+      ]
+    },
+    "resources": {
+      "title": "Resources",
+      "links": [
+        {
+          "label": "Documentation",
+          "href": "#docs"
+        },
+        {
+          "label": "Help Center",
+          "href": "#help"
+        },
+        {
+          "label": "Privacy Policy",
+          "href": "#privacy"
+        },
+        {
+          "label": "Terms of Service",
+          "href": "#terms"
+        }
+      ]
+    },
+    "bottom": {
+      "rights": "All rights reserved.",
+      "made": "Built with AI-driven innovation"
+    }
   }
 }
