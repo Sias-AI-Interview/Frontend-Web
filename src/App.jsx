@@ -1,18 +1,26 @@
-import Navbar from "./components/navigation/Navbar.jsx";
-import Home from "./pages/Landing.jsx";
-import RadialBG from "./components/animated/Radial.jsx";
-import FooterSectionLanding from "./footer/Footer.jsx";
+
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import LandingPages from './pages/Home';
+import AboutPages from './pages/AboutUs';
+import Register from './pages/auth/Register';
+import Login from './pages/auth/Login';
+import ForgotPassword from './pages/auth/ForgotPassword';
+import ResetPasswordPage from './pages/auth/ResetPassword';
 
 export default function App() {
   return (
-    <div className="relative min-h-screen w-full">
-      <RadialBG>
-        <Navbar />
-        <div className="p-8">
-          <Home />
-        </div>
-        <FooterSectionLanding />
-      </RadialBG>
-    </div>
+    <>
+      <Routes>
+        <React.Fragment>
+          <Route path="/" element={<LandingPages />} />
+          <Route path="/about" element={<AboutPages />} />
+          <Route path="/signup" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
+        </React.Fragment>
+      </Routes>
+    </>
   );
 }

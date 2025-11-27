@@ -7,6 +7,7 @@ import TestimonialsSection from "../components/section/TestimonialsSection";
 import PricingSection from "../components/section/PricingSection";
 import CTASection from "../components/section/CTASection";
 import React from "react";
+import FloatingIconsUI from "../components/animated/Feature";
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
             <StatsSection />
             <FeaturesSection />
             <HowToUseSection />
+            <FloatingIconsUI />
             <TestimonialsSection />
             <PricingSection />
             <CTASection />

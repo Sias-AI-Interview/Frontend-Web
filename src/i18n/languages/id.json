@@ -258,5 +258,251 @@
             "rights": "Hak cipta dilindungi undang-undang.",
             "made": "Dibuat dengan inovasi berbasis AI"
         }
+    },
+    "aboutPage": {
+        "hero": {
+            "about": "Tentang Kami",
+            "title1": "SIAS: Smart AI",
+            "title2": "Interview System",
+            "subtitle": "Setiap suara memiliki nilai, dan AI memastikan tak satupun hilang sekaligus meningkatkan akurasi proses rekrutmen.",
+            "badges": {
+                "aiPowered": "Berbasis AI",
+                "globalReady": "Siap Global",
+                "awardWinning": "Desain Bagus"
+            },
+            "scroll": "Gulir"
+        },
+        "story": {
+            "label": "Perjalanan Kami",
+            "title": "Membangun Masa Depan Rekrutmen",
+            "p1": "Di SIAS, kami berkomitmen mentransformasi dunia perekrutan melalui kecerdasan buatan tingkat lanjut. Misi kami adalah menyediakan sistem penilaian wawancara yang objektif, efisien, dan informatif.",
+            "p2": "SIAS dikembangkan sebagai proyek capstone oleh tiga mahasiswa — Rama, Nyoman, dan Gusmang — yang terinspirasi oleh passion terhadap teknologi dan solusi berfokus manusia.",
+            "stats": {
+                "accuracy": "Akurasi",
+                "interviews": "Wawancara",
+                "companies": "Perusahaan"
+            }
+        },
+        "mission": {
+            "title": "Misi Kami",
+            "text": "Yang membedakan SIAS adalah komitmen kami terhadap keandalan, transparansi, dan inovasi yang berfokus pada pengguna. Kami percaya AI harus memberdayakan manusia — bukan menggantikannya — dan sistem kami dirancang untuk meningkatkan pengambilan keputusan sambil tetap menjaga aspek manusia dalam rekrutmen.",
+            "tags": [
+                "Kecerdasan",
+                "Integritas",
+                "Inovasi"
+            ]
+        },
+        "valuesSection": {
+            "label": "Apa yang Kami Percayai",
+            "title": "Nilai-Nilai Inti Kami",
+            "subtitle": "Prinsip yang memandu segala yang kami lakukan di SIAS"
+        },
+        "values": [
+            {
+                "icon": "target",
+                "title": "Objektivitas",
+                "description": "Kami percaya pada penilaian berbasis data yang tidak bias dan memberi kesempatan yang adil bagi setiap kandidat."
+            },
+            {
+                "icon": "innovation",
+                "title": "Inovasi",
+                "description": "Terus mendorong batas untuk menghadirkan solusi AI mutakhir untuk rekrutmen modern."
+            },
+            {
+                "icon": "heart",
+                "title": "Berfokus pada Manusia",
+                "description": "AI harus memberdayakan manusia, bukan menggantikannya. Kami memperkuat proses pengambilan keputusan manusia."
+            },
+            {
+                "icon": "integrity",
+                "title": "Integritas",
+                "description": "Transparansi dan kepercayaan adalah inti dari semua yang kami bangun."
+            }
+        ],
+        "teamSection": {
+            "label": "Para Pembuat",
+            "title": "Kenalan dengan Tim",
+            "subtitle": "Pikiran-pikiran penuh dedikasi di balik SIAS yang ingin merevolusi proses perekrutan"
+        },
+        "team": [
+            {
+                "name": "Rama",
+                "role": "Fullstack Developer + Machine Learning Engineer",
+                "image": "/images/about/rama.png",
+                "linkedin": "#",
+                "github": "#",
+                "email": "#"
+            },
+            {
+                "name": "Nyoman",
+                "role": " Machine Learning Data Specialist + AI Trainer",
+                "image": "/images/about/nyoman.png",
+                "linkedin": "#",
+                "github": "#",
+                "email": "#"
+            },
+            {
+                "name": "Gusmang",
+                "role": "PM + MLops Data Engineer",
+                "image": "/images/about/gusmang.png",
+                "linkedin": "#",
+                "github": "#",
+                "email": "#"
+            }
+        ],
+        "floatingOrbs": [
+            {
+                "size": 320,
+                "color": "#2F66FF",
+                "glow": "#76A6FF",
+                "top": "10%",
+                "left": "50%",
+                "speed": 0.5
+            },
+            {
+                "size": 180,
+                "color": "#6EACDA",
+                "glow": "#6EACDA",
+                "top": "20%",
+                "left": "10%",
+                "speed": 0.8
+            },
+            {
+                "size": 120,
+                "color": "#4A90D9",
+                "glow": "#4A90D9",
+                "top": "15%",
+                "left": "85%",
+                "speed": 0.6
+            },
+            {
+                "size": 90,
+                "color": "#2F66FF",
+                "glow": "#76A6FF",
+                "top": "60%",
+                "left": "5%",
+                "speed": 0.9
+            },
+            {
+                "size": 150,
+                "color": "#6EACDA",
+                "glow": "#6EACDA",
+                "top": "70%",
+                "left": "92%",
+                "speed": 0.7
+            },
+            {
+                "size": 60,
+                "color": "#4A90D9",
+                "glow": "#4A90D9",
+                "top": "35%",
+                "left": "3%",
+                "speed": 1.0
+            },
+            {
+                "size": 70,
+                "color": "#2F66FF",
+                "glow": "#76A6FF",
+                "top": "80%",
+                "left": "15%",
+                "speed": 0.55
+            },
+            {
+                "size": 100,
+                "color": "#6EACDA",
+                "glow": "#6EACDA",
+                "top": "25%",
+                "left": "95%",
+                "speed": 0.75
+            },
+            {
+                "size": 50,
+                "color": "#76A6FF",
+                "glow": "#76A6FF",
+                "top": "45%",
+                "left": "90%",
+                "speed": 0.85
+            },
+            {
+                "size": 40,
+                "color": "#4A90D9",
+                "glow": "#4A90D9",
+                "top": "55%",
+                "left": "8%",
+                "speed": 0.95
+            },
+            {
+                "size": 200,
+                "color": "#2F66FF",
+                "glow": "#2F66FF",
+                "top": "40%",
+                "left": "75%",
+                "speed": 0.65
+            },
+            {
+                "size": 80,
+                "color": "#6EACDA",
+                "glow": "#6EACDA",
+                "top": "85%",
+                "left": "80%",
+                "speed": 0.45
+            }
+        ]
+    },
+    "register": {
+        "title": "Buat akun Anda",
+        "subtitle": "Bergabung dengan SIAS dan mulai perjalanan Anda",
+        "fullName": "Nama Lengkap",
+        "fullNamePlaceholder": "Masukkan nama lengkap Anda",
+        "email": "Alamat Email",
+        "emailPlaceholder": "Masukkan alamat email Anda",
+        "password": "Kata Sandi",
+        "passwordPlaceholder": "Masukkan kata sandi Anda",
+        "confirmPassword": "Konfirmasi Kata Sandi",
+        "confirmPasswordPlaceholder": "Masukkan ulang kata sandi Anda",
+        "createAccount": "Buat Akun",
+        "alreadyHaveAccount": "Sudah punya akun?",
+        "signIn": "Masuk",
+        "passwordsMatch": "Kata sandi cocok",
+        "passwordsNotMatch": "Kata sandi tidak cocok",
+        "requirements": {
+            "minLength": "Minimal 8 karakter",
+            "uppercase": "Minimal satu huruf besar",
+            "lowercase": "Minimal satu huruf kecil",
+            "number": "Minimal satu angka"
+        }
+    },
+    "login": {
+        "title": "Selamat Datang Kembali",
+        "subtitle": "Masuk untuk melanjutkan menggunakan SIAS",
+        "email": "Alamat Email",
+        "emailPlaceholder": "Masukkan alamat email Anda",
+        "password": "Kata Sandi",
+        "passwordPlaceholder": "Masukkan kata sandi Anda",
+        "forgotPassword": "Lupa kata sandi?",
+        "signIn": "Masuk",
+        "noAccount": "Belum punya akun?",
+        "createAccount": "Buat akun"
+    },
+    "forgotPassword": {
+        "title": "Lupa Kata Sandi",
+        "subtitle": "Masukkan email Anda untuk menerima tautan reset",
+        "email": "Alamat Email",
+        "emailPlaceholder": "Masukkan alamat email Anda",
+        "submit": "Kirim Tautan Reset",
+        "backToLogin": "Kembali ke halaman masuk",
+        "rememberPassword": "Ingat kata sandi Anda?",
+        "successMessage": "Jika email terdaftar, tautan reset telah dikirim.",
+        "errorMessage": "Gagal mengirim tautan reset. Silakan coba lagi."
+    },
+    "resetPassword": {
+        "title": "Reset Kata Sandi",
+        "subtitle": "Masukkan kata sandi baru Anda",
+        "password": "Kata Sandi Baru",
+        "passwordPlaceholder": "Masukkan kata sandi baru",
+        "confirmPassword": "Konfirmasi Kata Sandi",
+        "confirmPasswordPlaceholder": "Masukkan ulang kata sandi baru",
+        "submit": "Perbarui Kata Sandi",
+        "backToLogin": "Kembali ke halaman masuk"
     }
 }

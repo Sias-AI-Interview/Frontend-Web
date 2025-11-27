@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa"
 
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
 export default function FooterSectionLanding() {
     const { t } = useTranslation()
@@ -80,12 +81,12 @@ export default function FooterSectionLanding() {
                         <ul className="space-y-3">
                             {footerLinks.product.map((link, i) => (
                                 <li key={i}>
-                                    <a
-                                        href={link.href}
+                                    <Link
+                                        to={link.href}
                                         className="text-slate-400 hover:text-[#6EACDA] transition-colors duration-300"
                                     >
                                         {link.label}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -100,12 +101,12 @@ export default function FooterSectionLanding() {
                         <ul className="space-y-3">
                             {footerLinks.company.map((link, i) => (
                                 <li key={i}>
-                                    <a
-                                        href={link.href}
+                                    <Link
+                                        to={link.href}
                                         className="text-slate-400 hover:text-[#6EACDA] transition-colors duration-300"
                                     >
                                         {link.label}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -120,12 +121,12 @@ export default function FooterSectionLanding() {
                         <ul className="space-y-3">
                             {footerLinks.resources.map((link, i) => (
                                 <li key={i}>
-                                    <a
-                                        href={link.href}
+                                    <Link
+                                        to={link.href}
                                         className="text-slate-400 hover:text-[#6EACDA] transition-colors duration-300"
                                     >
                                         {link.label}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

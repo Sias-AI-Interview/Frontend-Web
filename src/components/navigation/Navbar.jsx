@@ -6,6 +6,7 @@ import { RxCaretDown } from "react-icons/rx";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../translations/LanguageSwitcher";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     const { t } = useTranslation();
@@ -46,12 +47,14 @@ export default function Navbar() {
             <div className="mx-auto max-w-screen-xl px-6 md:px-20 py-4">
                 <div className="flex items-center justify-between">
 
-                    <div className="flex items-center gap-3">
-                        <div className="flex h-8 w-8 items-center justify-center rounded border border-cyan-400 bg-cyan-500/10">
-                            <span className="text-sm font-bold text-cyan-300">S</span>
+                    <Link to='/'>
+                        <div className="flex items-center gap-3">
+                            <div className="flex h-8 w-8 items-center justify-center rounded border border-cyan-400 bg-cyan-500/10">
+                                <span className="text-sm font-bold text-cyan-300">S</span>
+                            </div>
+                            <span className="text-lg font-semibold tracking-wide text-white">SIAS</span>
                         </div>
-                        <span className="text-lg font-semibold tracking-wide text-white">SIAS</span>
-                    </div>
+                    </Link>
 
                     <nav className="hidden md:flex flex-1 items-center ml-8 gap-8">
                         <div
@@ -71,36 +74,40 @@ export default function Navbar() {
                                 className="absolute left-0 top-full mt-2 w-48 rounded border border-cyan-500/20 bg-slate-900 shadow-lg opacity-0"
                                 style={{ transform: "translateY(-8px)", display: "none" }}
                             >
-                                <a className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-300">
+                                <Link className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-300">
                                     {t("navbar.products.items.product1")}
-                                </a>
-                                <a className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-300">
+                                </Link>
+                                <Link className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-300">
                                     {t("navbar.products.items.product2")}
-                                </a>
-                                <a className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-300">
+                                </Link>
+                                <Link className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-300">
                                     {t("navbar.products.items.product3")}
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
-                        <a href="#how-to-use" className="text-sm text-gray-300 hover:text-white">
+                        <Link to="#how-to-use" className="text-sm text-gray-300 hover:text-white">
                             {t("navbar.howuse")}
-                        </a>
+                        </Link>
 
-                        <a className="text-sm text-gray-300 hover:text-white">
+                        <Link to="/about" className="text-sm text-gray-300 hover:text-white">
                             {t("navbar.about")}
-                        </a>
+                        </Link>
 
                         <LanguageSwitcher />
                     </nav>
 
                     <div className="hidden md:flex items-center gap-3">
-                        <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
-                            {t("navbar.login")}
-                        </button>
-                        <button className="rounded bg-[#021526] px-6 py-2 text-sm font-semibold text-white hover:bg-[#021526]/40 hover:shadow-lg hover:shadow-[#021526]/30">
-                            {t("navbar.signup")}
-                        </button>
+                        <Link to="/login">
+                            <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
+                                {t("navbar.login")}
+                            </button>
+                        </Link>
+                        <Link to="/signup">
+                            <button className="rounded bg-[#021526] px-6 py-2 text-sm font-semibold text-white hover:bg-[#021526]/40 hover:shadow-lg hover:shadow-[#021526]/30">
+                                {t("navbar.signup")}
+                            </button>
+                        </Link>
                     </div>
 
                     <button
@@ -127,25 +134,29 @@ export default function Navbar() {
 
                         {mobileDropdownOpen && (
                             <div className="pl-4 space-y-2">
-                                <a className="block text-gray-300 py-1">{t("navbar.products.items.product1")}</a>
-                                <a className="block text-gray-300 py-1">{t("navbar.products.items.product2")}</a>
-                                <a className="block text-gray-300 py-1">{t("navbar.products.items.product3")}</a>
+                                <Link to="#" className="block text-gray-300 py-1">{t("navbar.products.items.product1")}</Link>
+                                <Link to="#" className="block text-gray-300 py-1">{t("navbar.products.items.product2")}</Link>
+                                <Link to="#" className="block text-gray-300 py-1">{t("navbar.products.items.product3")}</Link>
                             </div>
                         )}
                     </div>
 
-                    <a className="block text-gray-300 py-2">{t("navbar.howuse")}</a>
-                    <a className="block text-gray-300 py-2">{t("navbar.about")}</a>
+                    <Link to="#how-to-use" className="block text-gray-300 py-2">{t("navbar.howuse")}</Link>
+                    <Link to="/about" className="block text-gray-300 py-2">{t("navbar.about")}</Link>
 
                     <LanguageSwitcher />
 
                     <div className="pt-2 flex flex-col gap-3">
-                        <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
-                            {t("navbar.login")}
-                        </button>
-                        <button className="rounded bg-[#021526] px-6 py-2 text-sm font-semibold text-white hover:bg-[#021526]/40 hover:shadow-lg hover:shadow-[#021526]/30">
-                            {t("navbar.signup")}
-                        </button>
+                        <Link to="/login">
+                            <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
+                                {t("navbar.login")}
+                            </button>
+                        </Link>
+                        <Link to="/signup">
+                            <button className="rounded bg-[#021526] px-6 py-2 text-sm font-semibold text-white hover:bg-[#021526]/40 hover:shadow-lg hover:shadow-[#021526]/30">
+                                {t("navbar.signup")}
+                            </button>
+                        </Link>
                     </div>
                 </div>
             )}

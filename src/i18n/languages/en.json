@@ -258,5 +258,251 @@
       "rights": "All rights reserved.",
       "made": "Built with AI-driven innovation"
     }
+  },
+  "aboutPage": {
+    "hero": {
+      "about": "About Us",
+      "title1": "SIAS: Smart AI",
+      "title2": "Interview System",
+      "subtitle": "Every voice reflects value, and AI ensures none of it is lost while elevating hiring precision.",
+      "badges": {
+        "aiPowered": "AI-Powered",
+        "globalReady": "Global Ready",
+        "awardWinning": "Good Design"
+      },
+      "scroll": "Scroll"
+    },
+    "story": {
+      "label": "Our Journey",
+      "title": "Building the Future of Recruitment",
+      "p1": "At SIAS, we are committed to transforming the hiring landscape through advanced artificial intelligence. Our mission is to provide organizations with an objective, efficient, and insightful interview assessment system.",
+      "p2": "SIAS was developed as a capstone project by three dedicated students — Rama, Nyoman, and Gusmang — inspired by a shared passion for technology and human-centered solutions.",
+      "stats": {
+        "accuracy": "Accuracy",
+        "interviews": "Interviews",
+        "companies": "Companies"
+      }
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text": "What distinguishes SIAS is our dedication to reliability, transparency, and user-focused innovation. We believe AI should empower people — not replace them — and our system is designed to enhance human decision-making while preserving the human element in recruitment.",
+      "tags": [
+        "Intelligence",
+        "Integrity",
+        "Innovation"
+      ]
+    },
+    "valuesSection": {
+      "label": "What We Believe",
+      "title": "Our Core Values",
+      "subtitle": "The principles that guide everything we do at SIAS"
+    },
+    "values": [
+      {
+        "icon": "target",
+        "title": "Objectivity",
+        "description": "We believe in unbiased, data-driven assessments that give every candidate a fair chance."
+      },
+      {
+        "icon": "innovation",
+        "title": "Innovation",
+        "description": "Continuously pushing boundaries to deliver cutting-edge AI solutions for modern recruitment."
+      },
+      {
+        "icon": "heart",
+        "title": "Human-Centered",
+        "description": "AI should empower people, not replace them. We enhance human decision-making."
+      },
+      {
+        "icon": "integrity",
+        "title": "Integrity",
+        "description": "Transparency and trust are at the core of everything we build and deliver."
+      }
+    ],
+    "teamSection": {
+      "label": "The Creators",
+      "title": "Meet the Team",
+      "subtitle": "The passionate minds behind SIAS, dedicated to revolutionizing the hiring process"
+    },
+    "team": [
+      {
+        "name": "Rama",
+        "role": "Fullstack Developer + Machine Learning Engineer",
+        "image": "/images/about/rama.png",
+        "linkedin": "#",
+        "github": "#",
+        "email": "#"
+      },
+      {
+        "name": "Nyoman",
+        "role": " Machine Learning Data Specialist + AI Trainer",
+        "image": "/images/about/nyoman.png",
+        "linkedin": "#",
+        "github": "#",
+        "email": "#"
+      },
+      {
+        "name": "Gusmang",
+        "role": "PM + MLops Data Engineer",
+        "image": "/images/about/gusmang.png",
+        "linkedin": "#",
+        "github": "#",
+        "email": "#"
+      }
+    ],
+    "floatingOrbs": [
+      {
+        "size": 320,
+        "color": "#2F66FF",
+        "glow": "#76A6FF",
+        "top": "10%",
+        "left": "50%",
+        "speed": 0.5
+      },
+      {
+        "size": 180,
+        "color": "#6EACDA",
+        "glow": "#6EACDA",
+        "top": "20%",
+        "left": "10%",
+        "speed": 0.8
+      },
+      {
+        "size": 120,
+        "color": "#4A90D9",
+        "glow": "#4A90D9",
+        "top": "15%",
+        "left": "85%",
+        "speed": 0.6
+      },
+      {
+        "size": 90,
+        "color": "#2F66FF",
+        "glow": "#76A6FF",
+        "top": "60%",
+        "left": "5%",
+        "speed": 0.9
+      },
+      {
+        "size": 150,
+        "color": "#6EACDA",
+        "glow": "#6EACDA",
+        "top": "70%",
+        "left": "92%",
+        "speed": 0.7
+      },
+      {
+        "size": 60,
+        "color": "#4A90D9",
+        "glow": "#4A90D9",
+        "top": "35%",
+        "left": "3%",
+        "speed": 1.0
+      },
+      {
+        "size": 70,
+        "color": "#2F66FF",
+        "glow": "#76A6FF",
+        "top": "80%",
+        "left": "15%",
+        "speed": 0.55
+      },
+      {
+        "size": 100,
+        "color": "#6EACDA",
+        "glow": "#6EACDA",
+        "top": "25%",
+        "left": "95%",
+        "speed": 0.75
+      },
+      {
+        "size": 50,
+        "color": "#76A6FF",
+        "glow": "#76A6FF",
+        "top": "45%",
+        "left": "90%",
+        "speed": 0.85
+      },
+      {
+        "size": 40,
+        "color": "#4A90D9",
+        "glow": "#4A90D9",
+        "top": "55%",
+        "left": "8%",
+        "speed": 0.95
+      },
+      {
+        "size": 200,
+        "color": "#2F66FF",
+        "glow": "#2F66FF",
+        "top": "40%",
+        "left": "75%",
+        "speed": 0.65
+      },
+      {
+        "size": 80,
+        "color": "#6EACDA",
+        "glow": "#6EACDA",
+        "top": "85%",
+        "left": "80%",
+        "speed": 0.45
+      }
+    ]
+  },
+  "register": {
+    "title": "Create your account",
+    "subtitle": "Join SIAS and start your journey",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter your password",
+    "createAccount": "Create Account",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "passwordsMatch": "Passwords match",
+    "passwordsNotMatch": "Passwords do not match",
+    "requirements": {
+      "minLength": "At least 8 characters",
+      "uppercase": "At least one uppercase letter",
+      "lowercase": "At least one lowercase letter",
+      "number": "At least one number"
+    }
+  },
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Log in to continue using SIAS",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot your password?",
+    "signIn": "Sign in",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create an account"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "subtitle": "Enter your email to receive a reset link",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "submit": "Send Reset Link",
+    "rememberPassword": "Remember your password?",
+    "backToLogin": "Back to login",
+    "successMessage": "If the email exists, a reset link has been sent.",
+    "errorMessage": "Failed to send reset link. Please try again."
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "subtitle": "Enter your new password below",
+    "password": "New Password",
+    "passwordPlaceholder": "Enter your new password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter your new password",
+    "submit": "Update Password",
+    "backToLogin": "Back to login"
   }
 }
