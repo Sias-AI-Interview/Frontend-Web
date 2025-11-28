@@ -7,20 +7,21 @@ export const userSchema = yup.object({
 });
 
 
+
 export const registerSchema = yup.object().shape({
-    fullName: yup.string().required("Nama lengkap wajib diisi"),
-    email: yup.string().email("Email tidak valid").required("Email wajib diisi"),
+    fullName: yup.string().required("Full name is required"),
+    email: yup.string().email("Invalid email").required("Email is required"),
     password: yup
         .string()
-        .required("Password wajib diisi")
-        .min(8, "Minimal 8 karakter")
-        .matches(/[A-Z]/, "Harus ada huruf besar")
-        .matches(/[a-z]/, "Harus ada huruf kecil")
-        .matches(/[0-9]/, "Harus ada angka")
-        .matches(/[^A-Za-z0-9]/, "Harus ada simbol"),
+        .required("Password is required")
+        .min(8, "Minimum 8 characters")
+        .matches(/[A-Z]/, "Must contain an uppercase letter")
+        .matches(/[a-z]/, "Must contain a lowercase letter")
+        .matches(/[0-9]/, "Must contain a number")
+        .matches(/[^A-Za-z0-9]/, "Must contain a symbol"),
     confirmPassword: yup
         .string()
-        .oneOf([yup.ref("password"), null], "Konfirmasi password tidak sama"),
+        .oneOf([yup.ref("password"), null], "Passwords must match"),
 });
 
 export const loginSchema = yup.object().shape({

@@ -5,14 +5,16 @@ import './index.css'
 import App from './App.jsx'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from './libs/reactQueryClient.js'
-import { HashRouter  } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import "./i18n/i18n";
+import { Toaster } from 'sonner'
 
 createRoot(document.getElementById('root-sias')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <HashRouter >
         <App />
+        <Toaster position="top-right" richColors />
       </HashRouter >
     </QueryClientProvider>
   </React.StrictMode>

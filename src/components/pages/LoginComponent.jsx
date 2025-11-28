@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import Form from "../form/Form";
@@ -8,6 +8,8 @@ import { loginSchema } from "../../validations/userSchema";
 
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import gsap from "gsap";
+import { toast } from "sonner";
+import { useLogin } from "@/hooks/useAuth";
 
 const floatingOrbs = [
     { size: 280, color: "#2F66FF", glow: "#76A6FF", top: "5%", left: "50%" },
@@ -22,6 +24,8 @@ const floatingOrbs = [
 
 export default function LoginPage() {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    const { mutateAsync: loginUser } = useLogin();
 
     const formRef = useRef(null);
     const orbsRef = useRef(null);
@@ -37,12 +41,41 @@ export default function LoginPage() {
         );
     }, []);
 
+
     const handleLogin = async (data) => {
         setIsLoading(true);
-        await new Promise((r) => setTimeout(r, 1500));
-        console.log("LOGIN DATA:", data);
-        setIsLoading(false);
+
+        try {
+            const res = await loginUser(data);
+
+            if (!res?.access_token) {
+                toast.error("Login failed: missing token");
+                return;
+            }
+
+            const supabaseSession = {
+                ...res,
+                expires_in: 3600,
+                token_type: "bearer"
+            };
+
+
+            // console.log(supabaseSession)
+
+            localStorage.setItem("sb-ewwozsikohikpbawgjuv-auth-token", JSON.stringify(supabaseSession));
+            document.cookie = `sb-ewwozsikohikpbawgjuv-auth-token=${encodeURIComponent(JSON.stringify(supabaseSession))}; path=/; max-age=3600`;
+
+            toast.success(res.message || "Login successful!");
+
+            navigate("/dashboard");
+
+        } catch (err) {
+            toast.error(err.message || "Login failed, please try again");
+        } finally {
+            setIsLoading(false);
+        }
     };
+
 
     return (
         <div

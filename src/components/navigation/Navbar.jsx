@@ -6,10 +6,12 @@ import { RxCaretDown } from "react-icons/rx";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../translations/LanguageSwitcher";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuthToken } from "@/hooks/useToken";
 
 export default function Navbar() {
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
     const dropdownRef = useRef(null);
     const caretRef = useRef(null);
@@ -17,6 +19,26 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+    const [token, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const checkSession = async () => {
+            const session = getAuthToken();
+            await Promise.resolve();
+            setIsLoggedIn(!!session?.access_token);
+        };
+        checkSession();
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("sb-ewwozsikohikpbawgjuv-auth-token");
+        document.cookie = "sb-ewwozsikohikpbawgjuv-auth-token=; path=/; max-age=0";
+
+        setIsLoggedIn(false);
+        navigate("/login");
+    };
+
+
 
     useEffect(() => {
         if (!dropdownRef.current || !caretRef.current) return;
@@ -104,17 +126,35 @@ export default function Navbar() {
                         <LanguageSwitcher />
                     </nav>
 
+                    {/* DESKTOP BUTTON RIGHT (no UI changes) */}
                     <div className="hidden md:flex items-center gap-3">
-                        <Link to="/login">
-                            <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
-                                {t("navbar.login")}
-                            </button>
-                        </Link>
-                        <Link to="/signup">
-                            <button className="rounded bg-[#021526] px-6 py-2 text-sm font-semibold text-white hover:bg-[#021526]/40 hover:shadow-lg hover:shadow-[#021526]/30">
-                                {t("navbar.signup")}
-                            </button>
-                        </Link>
+                        {!token ? (
+                            <>
+                                <Link to="/login">
+                                    <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
+                                        {t("navbar.login")}
+                                    </button>
+                                </Link>
+                                <Link to="/signup">
+                                    <button className="rounded bg-[#021526] px-6 py-2 text-sm font-semibold text-white hover:bg-[#021526]/40 hover:shadow-lg hover:shadow-[#021526]/30">
+                                        {t("navbar.signup")}
+                                    </button>
+                                </Link>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/dashboard">
+                                    <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
+                                        Dashboard
+                                    </button>
+                                </Link>
+                                <button
+                                    onClick={handleLogout}
+                                    className="rounded bg-red-600 px-6 py-2 text-sm font-semibold text-white hover:bg-red-700">
+                                    Logout
+                                </button>
+                            </>
+                        )}
                     </div>
 
                     <button
@@ -165,17 +205,35 @@ export default function Navbar() {
 
                     <LanguageSwitcher />
 
+                    {/* MOBILE BUTTON RIGHT (no UI changes) */}
                     <div className="pt-2 flex flex-col gap-3">
-                        <Link to="/login">
-                            <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
-                                {t("navbar.login")}
-                            </button>
-                        </Link>
-                        <Link to="/signup">
-                            <button className="rounded bg-[#021526] px-6 py-2 text-sm font-semibold text-white hover:bg-[#021526]/40 hover:shadow-lg hover:shadow-[#021526]/30">
-                                {t("navbar.signup")}
-                            </button>
-                        </Link>
+                        {!token ? (
+                            <>
+                                <Link to="/login">
+                                    <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200">
+                                        {t("navbar.login")}
+                                    </button>
+                                </Link>
+                                <Link to="/signup">
+                                    <button className="rounded bg-[#021526] px-6 py-2 text-sm font-semibold text-white">
+                                        {t("navbar.signup")}
+                                    </button>
+                                </Link>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/dashboard">
+                                    <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200">
+                                        Dashboard
+                                    </button>
+                                </Link>
+                                <button
+                                    onClick={handleLogout}
+                                    className="rounded bg-red-600 px-6 py-2 text-sm font-semibold text-white">
+                                    Logout
+                                </button>
+                            </>
+                        )}
                     </div>
                 </div>
             )}

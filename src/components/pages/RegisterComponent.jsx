@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import Form from "../form/Form";
 import FormInput from "../form/FormInput";
 import { registerSchema } from "../../validations/userSchema";
+import { useRegister } from '../../hooks/useAuth';
+// import { useAuthStore } from '../../store/authStore';
 
 import {
     FaUser,
@@ -15,6 +17,7 @@ import {
 } from "react-icons/fa";
 
 import gsap from "gsap";
+import { toast } from "sonner";
 
 const floatingOrbs = [
     { size: 280, color: "#2F66FF", glow: "#76A6FF", top: "5%", left: "50%" },
@@ -34,9 +37,13 @@ export default function RegisterPage() {
     const formRef = useRef(null);
     const orbsRef = useRef(null);
 
+    const registerMutation = useRegister();
+
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const isLoading = registerMutation.isPending;
+
+
 
     useEffect(() => {
         gsap.fromTo(
@@ -46,12 +53,27 @@ export default function RegisterPage() {
         );
     }, []);
 
-    const handleRegister = async (data) => {
-        setIsLoading(true);
-        await new Promise((r) => setTimeout(r, 1500));
-        console.log("REGISTER DATA:", data);
-        setIsLoading(false);
+    const handleRegister = (data) => {
+        const payload = {
+            fullname: data.fullName,
+            email: data.email,
+            password: data.password,
+            confirm_password: data.confirmPassword,
+        };
+
+        registerMutation.mutate(payload, {
+            onSuccess: (res) => {
+                toast.success(res.message);
+            },
+            onError: (err) => {
+                toast.error(err.message);
+            },
+        });
     };
+
+
+
+
 
     return (
         <div className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#021526" }}>
@@ -164,7 +186,7 @@ export default function RegisterPage() {
                             <div className="flex-1 h-px bg-white/10" />
                         </div>
 
-                        
+
                         {/* Form */}
                         <Form schema={registerSchema} onSubmit={handleRegister}>
                             {({ register, errors }) => (
@@ -222,7 +244,7 @@ export default function RegisterPage() {
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className="w-full py-3 rounded-xl bg-gradient-to-r from-[#6EACDA] to-[#2F66FF] text-white font-semibold shadow-lg shadow-blue-500/20"
+                                        className={`${isLoading ? "opacity-50 cursor-not-allowed" : ""} w-full py-3 rounded-xl bg-gradient-to-r from-[#6EACDA] to-[#2F66FF] text-white font-semibold shadow-lg shadow-blue-500/20`}
                                     >
                                         {isLoading ? (
                                             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mx-auto" />
@@ -230,6 +252,8 @@ export default function RegisterPage() {
                                             t("register.createAccount")
                                         )}
                                     </button>
+
+
 
                                     {/* Link */}
                                     <p className="text-center text-white/60 mt-4">
