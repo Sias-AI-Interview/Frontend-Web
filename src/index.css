@@ -52,10 +52,29 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'it_cushion';
+  src: url('/fonts/it_cushion/LTCushion-Medium.woff2') format('woff2'),
+    url('/fonts/it_cushion/LTCushion-Medium.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
 /* Tailwind v4 custom theme */
 @theme {
   --font-heading: "Coolvetica", sans-serif;
   --font-body: "Poppins", sans-serif;
+}
+
+.font-cushion {
+  font-family: 'it_cushion', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -219,6 +238,7 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

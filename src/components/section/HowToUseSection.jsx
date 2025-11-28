@@ -92,7 +92,7 @@ export default function HowToUseSection() {
     const handlePlayVideo = () => setIsPlaying(true);
 
     return (
-        <section ref={sectionRef} className="py-24 px-6 relative">
+        <section ref={sectionRef} className="py-24 px-6 relative" id="how-to-use">
             <div className="max-w-6xl mx-auto">
                 <div ref={titleRef} className="text-center mb-16">
                     <span className="inline-block px-4 py-1.5 rounded-full bg-[#6EACDA]/10 border border-[#6EACDA]/20 text-[#6EACDA] text-sm font-medium mb-4">

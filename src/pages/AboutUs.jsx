@@ -1,3 +1,4 @@
+import ScrollToTopButton from "@/components/animated/ScrollToTopButton";
 import RadialBG from "../components/animated/Radial";
 import Navbar from "../components/navigation/Navbar";
 import AboutUsComponent from "../components/pages/AboutComponent";
@@ -12,6 +13,8 @@ export default function AboutPages() {
                     <div>
                         <AboutUsComponent />
                     </div>
+                    <ScrollToTopButton />
+
                     <FooterSectionLanding />
                 </RadialBG>
             </div>

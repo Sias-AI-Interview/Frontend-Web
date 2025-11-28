@@ -49,10 +49,8 @@ export default function Navbar() {
 
                     <Link to='/'>
                         <div className="flex items-center gap-3">
-                            <div className="flex h-8 w-8 items-center justify-center rounded border border-cyan-400 bg-cyan-500/10">
-                                <span className="text-sm font-bold text-cyan-300">S</span>
-                            </div>
-                            <span className="text-lg font-semibold tracking-wide text-white">SIAS</span>
+                            <img src='/images/logo/sias.svg?v=1' className="w-13" />
+                            <span className="font-cushion text-lg font-semibold tracking-wide text-white">SIAS</span>
                         </div>
                     </Link>
 
@@ -86,7 +84,16 @@ export default function Navbar() {
                             </div>
                         </div>
 
-                        <Link to="#how-to-use" className="text-sm text-gray-300 hover:text-white">
+                        <Link
+                            to=""
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById("how-to-use")?.scrollIntoView({
+                                    behavior: "smooth"
+                                });
+                            }}
+                            className="block text-sm text-gray-300 py-2"
+                        >
                             {t("navbar.howuse")}
                         </Link>
 
@@ -141,7 +148,19 @@ export default function Navbar() {
                         )}
                     </div>
 
-                    <Link to="#how-to-use" className="block text-gray-300 py-2">{t("navbar.howuse")}</Link>
+                    <Link
+                        to=""
+                        onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById("how-to-use")?.scrollIntoView({
+                                behavior: "smooth"
+                            });
+                        }}
+                        className="block text-gray-300 py-2"
+                    >
+                        {t("navbar.howuse")}
+                    </Link>
+
                     <Link to="/about" className="block text-gray-300 py-2">{t("navbar.about")}</Link>
 
                     <LanguageSwitcher />
