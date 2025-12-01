@@ -504,5 +504,12 @@
         "confirmPasswordPlaceholder": "Masukkan ulang kata sandi baru",
         "submit": "Perbarui Kata Sandi",
         "backToLogin": "Kembali ke halaman masuk"
+    },
+    "logout": {
+        "component": "Keluar",
+        "title": "Konfirmasi Logout",
+        "message": "Apakah Anda yakin ingin keluar dari sesi ini?",
+        "confirm": "Keluar",
+        "cancel": "Batal"
     }
 }

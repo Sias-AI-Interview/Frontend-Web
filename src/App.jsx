@@ -10,6 +10,7 @@ import AuthCallback from "./pages/auth/AuthCallback";
 import Dashboard from "./pages/users/Dashboard";
 import PublicRoute from "./routes/PublicRoute";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import OauthCallback from "./pages/OauthCallback";
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
       <Route path="/forgot-password" element={<PublicRoute><ForgotPassword /></PublicRoute>} />
       <Route path="/reset-password" element={<PublicRoute><ResetPasswordPage /></PublicRoute>} />
       <Route path="/auth/callback" element={<AuthCallback />} />
+      <Route path="/outh/callback" element={<OauthCallback />} />
 
       <Route
         path="/dashboard"

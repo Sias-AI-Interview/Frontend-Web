@@ -41,6 +41,13 @@ mkdir -p src/{assets,components,hooks,libs,servers,validations}
 ``` bash pnpm add @react-spring/web
 ```
 
+### UI Component & Styling
+``` bash pnpm add @tailwindcss
+```
+
+``` bash pnpm add @tailwindcss
+```
+
 ### testing
 ``` bash pnpm add -D vitest jsdom @testing-library/react @testing-library/jest-dom
 ```

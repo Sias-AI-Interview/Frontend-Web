@@ -504,5 +504,12 @@
     "confirmPasswordPlaceholder": "Re-enter your new password",
     "submit": "Update Password",
     "backToLogin": "Back to login"
+  },
+  "logout": {
+    "title": "Confirm Logout",
+    "component": "Logout",
+    "message": "Are you sure you want to logout?",
+    "confirm": "Logout",
+    "cancel": "Cancel"
   }
 }

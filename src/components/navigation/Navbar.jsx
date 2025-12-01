@@ -8,6 +8,17 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../translations/LanguageSwitcher";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuthToken } from "@/hooks/useToken";
+import { IoIosLogOut } from "react-icons/io";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogFooter,
+    DialogTrigger
+} from "@/components/ui/dialog";
+import { Button } from "../ui/button";
+
 
 export default function Navbar() {
     const { t } = useTranslation();
@@ -20,6 +31,8 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
     const [token, setIsLoggedIn] = useState(false);
+    const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
+
 
     useEffect(() => {
         const checkSession = async () => {
@@ -144,15 +157,18 @@ export default function Navbar() {
                         ) : (
                             <>
                                 <Link to="/dashboard">
-                                    <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
+                                    <button className="rounded border cursor-pointer border-cyan-400/50 px-6 py-2 text-sm text-gray-200 hover:border-cyan-400 hover:bg-cyan-400/5 hover:text-cyan-300">
                                         Dashboard
                                     </button>
                                 </Link>
-                                <button
-                                    onClick={handleLogout}
-                                    className="rounded bg-red-600 px-6 py-2 text-sm font-semibold text-white hover:bg-red-700">
+                                <Button
+                                    onClick={() => setLogoutDialogOpen(true)}
+                                    className="inline-flex cursor-pointer items-center gap-3 rounded bg-red-600 px-6 py-2 text-sm font-semibold text-white hover:bg-red-700"
+                                >
+                                    <IoIosLogOut className="text-lg font-semibold" />
                                     Logout
-                                </button>
+                                </Button>
+
                             </>
                         )}
                     </div>
@@ -223,20 +239,56 @@ export default function Navbar() {
                         ) : (
                             <>
                                 <Link to="/dashboard">
-                                    <button className="rounded border border-cyan-400/50 px-6 py-2 text-sm text-gray-200">
+                                    <button className="rounded cursor-pointer border border-cyan-400/50 px-6 py-2 text-sm text-gray-200">
                                         Dashboard
                                     </button>
                                 </Link>
-                                <button
-                                    onClick={handleLogout}
-                                    className="rounded bg-red-600 px-6 py-2 text-sm font-semibold text-white">
+                                <Button
+                                    onClick={() => setLogoutDialogOpen(true)}
+                                    className="inline-flex cursor-pointer items-center gap-3 rounded bg-red-600 px-6 py-2 text-sm font-semibold text-white hover:bg-red-700"
+                                >
+                                    <IoIosLogOut className="text-lg font-semibold" />
                                     Logout
-                                </button>
+                                </Button>
+
                             </>
                         )}
                     </div>
                 </div>
             )}
+
+            <Dialog open={logoutDialogOpen} onOpenChange={setLogoutDialogOpen}>
+                <DialogContent className="bg-slate-900 border-cyan-500/20 text-gray-200">
+                    <DialogHeader>
+                        <DialogTitle>{t("logout.title")}</DialogTitle>
+                    </DialogHeader>
+
+                    <p className="text-sm text-gray-400">{t("logout.message")}</p>
+
+                    <DialogFooter className="mt-4 flex justify-end gap-3">
+                        <Button
+                            variant="secondary"
+                            className="bg-gray-700 hover:bg-gray-600 text-gray-200"
+                            onClick={() => setLogoutDialogOpen(false)}
+                        >
+                            {t("logout.cancel")}
+                        </Button>
+
+                        <Button
+                            className="bg-red-600 hover:bg-red-700 text-white"
+                            onClick={() => {
+                                setLogoutDialogOpen(false);
+                                handleLogout();
+                            }}
+                        >
+                            {t("logout.confirm")}
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
+
+
+
         </header>
     );
 }
