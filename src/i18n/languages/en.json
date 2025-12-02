@@ -511,5 +511,15 @@
     "message": "Are you sure you want to logout?",
     "confirm": "Logout",
     "cancel": "Cancel"
+  },
+  "pageLoading": {
+    "public": {
+      "id": "page-loading-public",
+      "title": "Preparing Public Page"
+    },
+    "protected": {
+      "id": "page-loading-protected",
+      "title": "Preparing Secure Page"
+    }
   }
 }

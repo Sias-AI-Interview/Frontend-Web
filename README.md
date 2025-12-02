@@ -45,7 +45,7 @@ mkdir -p src/{assets,components,hooks,libs,servers,validations}
 ``` bash pnpm add @tailwindcss
 ```
 
-``` bash pnpm add @tailwindcss
+``` bash npx shadcn@latest add skeleton
 ```
 
 ### testing

@@ -29,10 +29,12 @@ import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "../components/ui/dialog"
+import { Skeleton } from "@/components/ui/skeleton"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../components/ui/tooltip"
 import { getAuthToken } from "@/hooks/useToken"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
+import { useAuthUser } from "@/hooks/useAuth"
 
 const mainNavItems = [
     { title: "Dashboard", to: "/dashboard", icon: LuLayoutDashboard },
@@ -73,6 +75,15 @@ export default function DashboardLayout({ children }) {
     const pathname = location.pathname
     const navigate = useNavigate()
     const { t } = useTranslation()
+    const user = useAuthUser();
+    const isLoading = !user;
+
+
+    const avatarUrl =
+        user?.user_metadata?.avatar_url ||
+        user?.user_metadata?.picture
+
+    const hasAvatar = Boolean(avatarUrl);
 
 
     const [isCollapsed, setIsCollapsed] = useState(false)
@@ -245,31 +256,63 @@ export default function DashboardLayout({ children }) {
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <Button variant="ghost" className="h-8 gap-2 px-2 text-gray-400 hover:text-white">
-                                        <Avatar className="h-6 w-6">
-                                            <AvatarImage src="/placeholder-user.jpg" />
-                                            <AvatarFallback className="bg-[#6EACDA]/20 text-[#6EACDA] text-xs">HR</AvatarFallback>
-                                        </Avatar>
-                                        <span className="hidden text-sm md:inline-block">HR Manager</span>
+                                        {isLoading ? (
+                                            <>
+                                                <Skeleton className="h-6 w-6 rounded-full" />
+                                                <Skeleton className="h-4 w-24 rounded-md hidden md:inline-block" />
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Avatar className="h-6 w-6">
+                                                    {hasAvatar ? (
+                                                        <AvatarImage
+                                                            src={avatarUrl}
+                                                            onError={(e) => {
+                                                                e.currentTarget.src = "/placeholder-user.jpg";
+                                                            }}
+                                                        />
+                                                    ) : (
+                                                        <AvatarFallback className="bg-[#6EACDA]/20 text-[#6EACDA] text-xs">
+                                                            {user?.user_metadata?.full_name?.charAt(0)?.toUpperCase() ?? "U"}
+                                                        </AvatarFallback>
+                                                    )}
+                                                </Avatar>
+
+
+                                                <span className="hidden text-sm md:inline-block">
+                                                    {user?.user_metadata?.full_name}
+                                                </span>
+                                            </>
+                                        )}
+
                                         <IoChevronDownOutline className="h-3 w-3" />
                                     </Button>
                                 </DropdownMenuTrigger>
+
                                 <DropdownMenuContent align="end" className="w-48 border-[#6EACDA]/20 bg-[#0a2a3f]">
                                     <DropdownMenuLabel className="text-gray-400">My Account</DropdownMenuLabel>
                                     <DropdownMenuSeparator className="bg-[#6EACDA]/20" />
+
                                     <DropdownMenuItem asChild>
                                         <Link to="/dashboard/profile" className="text-white cursor-pointer">
                                             <LuUser className="mr-2 h-4 w-4" />
                                             Profile
                                         </Link>
                                     </DropdownMenuItem>
+
                                     <DropdownMenuItem asChild>
                                         <Link to="/dashboard/settings" className="text-white cursor-pointer">
                                             <RiSettings2Line className="mr-2 h-4 w-4" />
                                             Settings
                                         </Link>
                                     </DropdownMenuItem>
+
                                     <DropdownMenuSeparator className="bg-[#6EACDA]/20" />
-                                    <DropdownMenuItem className="text-red-400 cursor-pointer">
+
+                                    <DropdownMenuItem
+                                        onClick={() => setLogoutDialogOpen(true)}
+                                        className="text-red-400 cursor-pointer"
+                                    >
                                         <LuLogOut className="mr-2 h-4 w-4" />
                                         Logout
                                     </DropdownMenuItem>

@@ -511,5 +511,15 @@
         "message": "Apakah Anda yakin ingin keluar dari sesi ini?",
         "confirm": "Keluar",
         "cancel": "Batal"
+    },
+    "pageLoading": {
+        "public": {
+            "id": "page-loading-public",
+            "title": "Preparing Public Page"
+        },
+        "protected": {
+            "id": "page-loading-protected",
+            "title": "Preparing Secure Page"
+        }
     }
 }
