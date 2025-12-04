@@ -1,0 +1,238 @@
+{
+    "provider_token": "sjkasaksj",
+    "access_token": "masmanmsnamnsman",
+    "expires_in": 3600,
+    "expires_at": 1764744091,
+    "refresh_token": "xe3547yhdork",
+    "token_type": "bearer",
+    "user": {
+        "id": "sa9sa",
+        "aud": "authenticated",
+        "role": "authenticated",
+        "email": "cuu@gmail.com",
+        "email_confirmed_at": "2025-11-28T07:03:38.472539Z",
+        "phone": "",
+        "confirmation_sent_at": "2025-11-28T07:03:19.879816Z",
+        "confirmed_at": "2025-11-28T07:03:38.472539Z",
+        "last_sign_in_at": "2025-12-03T05:41:31.760523Z",
+        "app_metadata": {
+            "provider": "email",
+            "providers": [
+                "email",
+                "google"
+            ]
+        },
+        "user_metadata": {
+            "avatar_url": "https://lh3.googleusercontent.com/a/sa;soasaslkaslalslakslzqGP5_Hgj6xYf_KB2ROHyJs8zb=s96-c",
+            "email": "cuu@gmail.com",
+            "email_verified": true,
+            "full_name": "kcjsaks",
+            "fullname": "sjkajksjaksjkas",
+            "iss": "https://accounts.google.com",
+            "name": "kcjsaks",
+            "phone_verified": false,
+            "picture": "https://lh3.googleusercontent.com/a/sa;soasaslkaslalslakslzqGP5_Hgj6xYf_KB2ROHyJs8zb=s96-c",
+            "provider_id": "nmmasnmansmnams",
+            "sub": "nmmasnmansmnams"
+        },
+        "identities": [
+            {
+                "identity_id": "c7a3529e-1d14-4e35-aa06-2774f157a913",
+                "id": "2a7dd540-6d22-4898-8c6e-bb02814556c1",
+                "user_id": "2a7dd540-6d22-4898-8c6e-bb02814556c1",
+                "identity_data": {
+                    "email": "cuu@gmail.com",
+                    "email_verified": true,
+                    "fullname": "sjkajksjaksjkas",
+                    "phone_verified": false,
+                    "sub": "2a7dd540-6d22-4898-8c6e-bb02814556c1"
+                },
+                "provider": "email",
+                "last_sign_in_at": "2025-11-28T07:03:19.875587Z",
+                "created_at": "2025-11-28T07:03:19.875641Z",
+                "updated_at": "2025-11-28T07:03:19.875641Z",
+                "email": "cuu@gmail.com"
+            },
+            {
+                "identity_id": "66a9283b-36fa-41b8-a47e-708b2ae7b934",
+                "id": "nmmasnmansmnams",
+                "user_id": "2a7dd540-6d22-4898-8c6e-bb02814556c1",
+                "identity_data": {
+                    "avatar_url": "https://lh3.googleusercontent.com/a/sa;soasaslkaslalslakslzqGP5_Hgj6xYf_KB2ROHyJs8zb=s96-c",
+                    "email": "cuu@gmail.com",
+                    "email_verified": true,
+                    "full_name": "kcjsaks",
+                    "iss": "https://accounts.google.com",
+                    "name": "kcjsaks",
+                    "phone_verified": false,
+                    "picture": "https://lh3.googleusercontent.com/a/sa;soasaslkaslalslakslzqGP5_Hgj6xYf_KB2ROHyJs8zb=s96-c",
+                    "provider_id": "nmmasnmansmnams",
+                    "sub": "nmmasnmansmnams"
+                },
+                "provider": "google",
+                "last_sign_in_at": "2025-12-01T00:37:55.802756Z",
+                "created_at": "2025-12-01T00:37:55.803437Z",
+                "updated_at": "2025-12-03T05:41:31.757311Z",
+                "email": "cuu@gmail.com"
+            }
+        ],
+        "created_at": "2025-11-28T07:03:19.845709Z",
+        "updated_at": "2025-12-03T05:41:31.763359Z",
+        "is_anonymous": false
+    }
+}
+
+
+{'avatar_url': 'https: //lh3.googleusercontent.com/a/nansmnamsnma-zqGP5_Hgj6xYf_KB2ROHyJs8zb=s96-c', 'email': 'sjasahj@gmail.com', 'email_verified': True, 'id': '2a7dd540-6d22-4898-8c6e-bb02814556c1', 'iss': 'https://accounts.google.com', 'name': 'AsyncFunc', 'phone_verified': False, 'picture': 'https://lh3.googleusercontent.com/a/nansmnamsnma-zqGP5_Hgj6xYf_KB2ROHyJs8zb=s96-c', 'provider_id': '3092090299091029019', 'sub': '3092090299091029019', 'user_metadata': {'bio': '', 'department': '', 'full_name': 'Rama', 'instagram': '', 'instansi': '', 'jabatan': '', 'location': '', 'phone': '085969084584'}, 'user_profile': {'bio': '', 'department': '', 'full_name': 'Rama', 'instagram': '', 'instansi': '', 'jabatan': '', 'location': '', 'phone': '085969084584'}}
+    {
+        "id": "2a7dd540-6d22-4898-8c6e-bb02814556c1",
+        "email": "hajskajskaksjak@gmail.com",
+        "banned_until": null,
+        "created_at": "2025-11-28 07:03:19.845709+00",
+        "confirmed_at": "2025-11-28 07:03:38.472539+00",
+        "confirmation_sent_at": "2025-11-28 07:03:19.879816+00",
+        "is_anonymous": false,
+        "is_sso_user": false,
+        "invited_at": null,
+        "last_sign_in_at": "2025-12-03 05:41:31.760523+00",
+        "phone": null,
+        "raw_app_meta_data": {
+            "provider": "email",
+            "providers": [
+                "email",
+                "google"
+            ]
+        },
+        "raw_user_meta_data": {
+            "iss": "https://accounts.google.com",
+            "sub": "nmmasnmansmnams",
+            "name": "AsyncFunc",
+            "email": "hajskajskaksjak@gmail.com",
+            "picture": "https://lh3.googleusercontent.com/a/dskajksjakjskajsk-zqGP5_Hgj6xYf_KB2ROHyJs8zb=s96-c",
+            "fullname": "Rama",
+            "full_name": "AsyncFunc",
+            "avatar_url": "https://lh3.googleusercontent.com/a/dskajksjakjskajsk-zqGP5_Hgj6xYf_KB2ROHyJs8zb=s96-c",
+            "provider_id": "nmmasnmansmnams",
+            "email_verified": true,
+            "phone_verified": false
+        },
+        "updated_at": "2025-12-04 00:38:11.338494+00",
+        "providers": [
+            "email",
+            "google"
+        ]
+    }
+
+
+
+
+
+{
+  "success": true,
+  "data": {
+    "id": 131,
+    "candidate": {
+      "name": "xxx",
+      "email": "xxx@gmail.com",
+      "photoUrl": "xxx.png"
+    },
+    "certification": {
+      "abbreviatedType": "DCML",
+      "normalType": "DEV_CERTIFICATION_MACHINE_LEARNING",
+      "submittedAt": "2025-08-02 07:49:52",
+      "status": "FINISHED",
+      "projectType": "dcml_package_1",
+      "interviewQuestionSets": 1,
+      "examScore": 94.33,
+      "autoGraderProjectScore": 100,
+      "downloadProjectUrl": "xxx",
+      "isReviewedByMe": false,
+      "isAlreadyReviewedByMe": false,
+      "assess": {
+        "project": false,
+        "interviews": true
+      }
+    },
+    "reviewChecklists": {
+      "project": [],
+      "interviews": [
+        {
+          "positionId": 1,
+          "question": "Can you share any specific challenges ?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/"
+        },
+        {
+          "positionId": 2,
+          "question": "Can you describe your experience with?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/"
+        },
+        {
+          "positionId": 3,
+          "question": "Describe a complex TensorFlow model you ",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/"
+        },
+        {
+          "positionId": 4,
+          "question": "Explain how to implement ",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/"
+        },
+        {
+          "positionId": 5,
+          "question": "Describe the process of building ",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/"
+        }
+      ]
+    },
+    "pastReviews": [
+      {
+        "assessorProfile": {
+          "id": 47,
+          "name": "xxx",
+          "photoUrl": "xxx"
+        },
+        "decision": "PASSED",
+        "reviewedAt": "2025-08-06 21:19:05",
+        "scoresOverview": {
+          "project": 100,
+          "interview": 80,
+          "total": 94.3
+        },
+        "reviewChecklistResult": {
+          "project": [],
+          "interviews": {
+            "minScore": 0,
+            "maxScore": 4,
+            "scores": [
+              {
+                "id": 1,
+                "score": 3
+              },
+              {
+                "id": 2,
+                "score": 3
+              },
+              {
+                "id": 3,
+                "score": 4
+              },
+              {
+                "id": 4,
+                "score": 3
+              },
+              {
+                "id": 5,
+                "score": 3
+              }
+            ]
+          }
+        },
+        "notes": "lancar tidak mencurigakan"
+      }
+    ]
+  }
+}

@@ -100,7 +100,7 @@ export default function Navbar() {
                                 <div ref={caretRef} className="origin-center">
                                     <RxCaretDown />
                                 </div>
-                            </button>N
+                            </button>
 
                             <div
                                 ref={dropdownRef}

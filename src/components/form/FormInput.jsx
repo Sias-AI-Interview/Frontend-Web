@@ -9,6 +9,7 @@ export default function FormInput({
     className = "",
     iconLeft,
     iconRight,
+    isReadOnly,
     ...rest
 }) {
     return (
@@ -33,6 +34,7 @@ export default function FormInput({
                     id={name}
                     type={type}
                     {...register(name)}
+                    readOnly={isReadOnly}
                     className={`
             w-full py-3 px-4 bg-white/5 border border-white/10 rounded-xl 
             text-white placeholder-white/40 focus:outline-none focus:ring-2 
@@ -40,6 +42,7 @@ export default function FormInput({
             ${iconLeft ? "pl-12" : ""}
             ${iconRight ? "pr-12" : ""}
             ${className}
+          ${isReadOnly ? "cursor-not-allowed opacity-70" : "cursor-text"}
           `}
                     {...rest}
                 />

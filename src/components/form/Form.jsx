@@ -13,11 +13,7 @@ export default function Form({ schema, onSubmit, children, defaultValues = {} })
   });
 
   if (typeof children === "function") {
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {children({ register, errors })}
-      </form>
-    );
+    return <form onSubmit={handleSubmit(onSubmit)}>{children({ register, errors })}</form>;
   }
 
   const clonedChildren = React.Children.map(children, (child) => {
@@ -30,9 +26,5 @@ export default function Form({ schema, onSubmit, children, defaultValues = {} })
     return child;
   });
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {clonedChildren}
-    </form>
-  );
+  return <form onSubmit={handleSubmit(onSubmit)}>{clonedChildren}</form>;
 }

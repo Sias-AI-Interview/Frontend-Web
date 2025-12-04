@@ -44,8 +44,7 @@ const mainNavItems = [
 const manageNavItems = {
     title: "Manage",
     items: [
-        { title: "History", to: "/dashboard/history", icon: HiOutlineClock },
-        { title: "Candidates", to: "/dashboard/candidates", icon: HiOutlineUserGroup },
+        { title: "Assesment Result", to: "/dashboard/assesment-result", icon: HiOutlineUserGroup },
         { title: "Reports", to: "/dashboard/reports", icon: HiOutlineChartBar },
     ],
 }
@@ -267,6 +266,7 @@ export default function DashboardLayout({ children }) {
                                                     {hasAvatar ? (
                                                         <AvatarImage
                                                             src={avatarUrl}
+                                                            referrerPolicy="no-referrer"
                                                             onError={(e) => {
                                                                 e.currentTarget.src = "/placeholder-user.jpg";
                                                             }}

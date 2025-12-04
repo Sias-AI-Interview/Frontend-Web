@@ -41,3 +41,16 @@ export const forgotPasswordSchema = yup.object().shape({
         .email("Invalid email format")
         .required("Email is required")
 });
+
+
+export const profileSchema = yup.object().shape({
+    fullName: yup.string().required("Fullname wajib diisi"),
+    email: yup.string().email("Format email tidak valid").required("Email wajib diisi"),
+    phone: yup.string().nullable(),
+    company: yup.string().nullable(),
+    department: yup.string().nullable(),
+    position: yup.string().nullable(),
+    location: yup.string().nullable(),
+    bio: yup.string().nullable(),
+    instagram: yup.string().url("Harus berupa URL valid").nullable(),
+});

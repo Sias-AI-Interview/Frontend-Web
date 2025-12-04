@@ -11,6 +11,8 @@ import Dashboard from "./pages/users/Dashboard";
 import PublicRoute from "./routes/PublicRoute";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import OauthCallback from "./pages/OauthCallback";
+import ProfilePage from "./pages/users/Profile";
+import UploadPage from "./pages/users/Upload";
 
 export default function App() {
   return (
@@ -49,6 +51,19 @@ export default function App() {
           </ProtectedRoute>
         }
       />
+
+
+      <Route path="/dashboard/profile" element={
+        <ProtectedRoute>
+          <ProfilePage />
+        </ProtectedRoute>
+      } />
+
+      <Route path="/dashboard/upload" element={
+        <ProtectedRoute>
+          <UploadPage />
+        </ProtectedRoute>
+      } />
 
 
 

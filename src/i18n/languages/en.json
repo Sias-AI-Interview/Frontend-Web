@@ -521,5 +521,38 @@
       "id": "page-loading-protected",
       "title": "Preparing Secure Page"
     }
+  },
+  "profile": {
+    "title": "Profile",
+    "description": "Manage your account information",
+    "isEditing": {
+      "cancel": "Cancel",
+      "true": "Save Changes",
+      "false": "Edit Profile"
+    },
+    "joined": "Joined",
+    "profileDetail": {
+      "personal_info": "Personal Information",
+      "personal_desc": "Update your personal details",
+      "fullname": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "location": "Location Address",
+      "bio": "Bio"
+    },
+    "workInfo": {
+      "work_info": "Work Information",
+      "work_desc": "Your company and role details",
+      "company": "Company",
+      "department": "Department",
+      "position": "Position"
+    },
+    "security": "Security",
+    "security_desc": "Manage your account security",
+    "cpass": {
+      "title": "Password",
+      "desc": "Last changed",
+      "button": "Changes Password"
+    }
   }
 }

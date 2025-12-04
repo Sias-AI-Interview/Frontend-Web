@@ -521,5 +521,38 @@
             "id": "page-loading-protected",
             "title": "Preparing Secure Page"
         }
+    },
+    "profile": {
+        "title": "Profil",
+        "description": "Managemen informasi akun anda",
+        "isEditing": {
+            "cancel": "Batal",
+            "true": "Simpan Perubahan",
+            "false": "Modifikasi Profil"
+        },
+        "joined": "Bergabung",
+        "profileDetail": {
+            "personal_info": "Informasi Pribadi",
+            "personal_desc": "Perbarui Informasi Pribadi anda",
+            "fullname": "Nama Lengkap",
+            "email": "Alamat Email",
+            "phone": "No Telpon",
+            "location": "Alamat",
+            "bio": "Ceritakan Tentang Anda"
+        },
+        "workInfo": {
+            "work_info": "Informasi Pekerjaan",
+            "work_desc": "Detail Perusahaan dan peran perusahaan",
+            "company": "Perusahaan",
+            "department": "Departemen",
+            "position": "Posisi/Jabatan"
+        },
+        "security": "Keamanan",
+        "security_desc": "Kelola keamanan akun Anda",
+        "cpass": {
+            "title": "Kata Sandi",
+            "desc": "Terakhir di ganti pada",
+            "button": "Ganti Kata Sandi"
+        }
     }
 }
