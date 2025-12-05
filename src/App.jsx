@@ -13,6 +13,10 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import OauthCallback from "./pages/OauthCallback";
 import ProfilePage from "./pages/users/Profile";
 import UploadPage from "./pages/users/Upload";
+import ReportsPage from "./pages/users/Reports";
+import CandidatesPage from "./pages/users/Candidates";
+import SettingsPage from "./pages/users/Settings";
+import CandidateDetailPage from "./pages/users/CandidateDetails";
 
 export default function App() {
   return (
@@ -65,6 +69,31 @@ export default function App() {
         </ProtectedRoute>
       } />
 
+      <Route path="/dashboard/reports" element={
+        <ProtectedRoute>
+          <ReportsPage />
+        </ProtectedRoute>
+      } />
+
+
+
+      <Route path="/dashboard/assesment-result" element={
+        <ProtectedRoute>
+          <CandidatesPage />
+        </ProtectedRoute>
+      } />
+
+      <Route path="/dashboard/assesment-result/:id" element={
+        <ProtectedRoute>
+          <CandidateDetailPage />
+        </ProtectedRoute>
+      } />
+
+      <Route path="/dashboard/settings" element={
+        <ProtectedRoute>
+          <SettingsPage />
+        </ProtectedRoute>
+      } />
 
 
       <Route path="*" element={<Login />} />

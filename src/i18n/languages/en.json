@@ -554,5 +554,104 @@
       "desc": "Last changed",
       "button": "Changes Password"
     }
+  },
+  "jsonExample": {
+    "button": "View JSON format example",
+    "title": "JSON Format Example",
+    "description": "Use this format when sending data to the API",
+    "moreInfo": "Get the full specification here:",
+    "close": "Close"
+  },
+  "upload": {
+    "title": "Upload Payload",
+    "subtitle": "Upload JSON file only",
+    "jsonUpload": "JSON Upload",
+    "description": "Drag & drop payload JSON based on Dev Certification Machine Learning format",
+    "dragHere": "Drag & drop JSON file",
+    "dropHere": "Drop JSON here",
+    "fileRule": "Only .json | Max 1 file",
+    "analysisTitle": "Analysis Result",
+    "jsonOutput": "JSON Output",
+    "noResult": "No result yet",
+    "startAnalysis": "Start Analysis",
+    "toast": {
+      "success": "Upload & analysis successful",
+      "failed": "Upload failed"
+    },
+    "errors": {
+      "invalidFile": "File must be JSON format",
+      "invalidJson": "Invalid JSON format"
+    }
+  },
+  "candidate": {
+    "title": "Candidates",
+    "subtitle": "Manage and track all candidates",
+    "add": "Add Candidate JSON File",
+    "search": "Search candidates...",
+    "status": "Status"
+  },
+  "status": {
+    "all": "All Status",
+    "hired": "Hired",
+    "in_review": "In Review",
+    "pending": "Pending",
+    "rejected": "Rejected"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account preferences",
+    "notifications": {
+      "title": "Notifications",
+      "desc": "Configure how you receive notifications",
+      "email": "Email Notifications",
+      "email_desc": "Receive notifications via email",
+      "push": "Push Notifications",
+      "push_desc": "Receive notifications in the browser",
+      "weekly": "Weekly Report",
+      "weekly_desc": "Weekly activity summary",
+      "new_candidate": "New Candidate",
+      "new_candidate_desc": "Get notified when a new candidate is added",
+      "analysis": "Analysis Complete",
+      "analysis_desc": "Get notified when the interview analysis is completed"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "desc": "Customize the app appearance",
+      "theme": "Theme",
+      "language": "Language"
+    },
+    "security": {
+      "title": "Privacy & Security",
+      "desc": "Manage your account security",
+      "2fa": "Two-Factor Authentication",
+      "2fa_desc": "Add an extra layer of security",
+      "sessions": "Active Sessions",
+      "sessions_desc": "Manage logged-in devices"
+    },
+    "billing": {
+      "title": "Billing",
+      "desc": "Manage your subscription",
+      "plan": "Professional Plan"
+    },
+    "data": {
+      "title": "Data Management",
+      "desc": "Export or delete your data",
+      "export": "Export Data",
+      "export_desc": "Download your data in CSV format",
+      "delete": "Delete Account",
+      "delete_desc": "Permanently delete your account"
+    }
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
+  "common": {
+    "enable": "Enable",
+    "view_all": "View All",
+    "upgrade": "Upgrade",
+    "export": "Export",
+    "delete": "Delete"
   }
 }

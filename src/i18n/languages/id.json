@@ -554,5 +554,104 @@
             "desc": "Terakhir di ganti pada",
             "button": "Ganti Kata Sandi"
         }
+    },
+    "jsonExample": {
+        "button": "Lihat contoh JSON format",
+        "title": "Contoh Format JSON",
+        "description": "Gunakan format ini saat mengirim data ke API",
+        "moreInfo": "Dapatkan format spesifik di sini:",
+        "close": "Tutup"
+    },
+    "upload": {
+        "title": "Upload Payload",
+        "subtitle": "Upload file JSON saja",
+        "jsonUpload": "Upload JSON",
+        "description": "Drag & drop payload JSON sesuai format Dev Certification Machine Learning",
+        "dragHere": "Drag & drop file JSON",
+        "dropHere": "Drop JSON di sini",
+        "fileRule": "Hanya .json | Maksimal 1 file",
+        "analysisTitle": "Hasil Analisis",
+        "jsonOutput": "Output JSON",
+        "noResult": "Belum ada hasil",
+        "startAnalysis": "Mulai Analisis",
+        "toast": {
+            "success": "Upload & analisis berhasil",
+            "failed": "Upload gagal"
+        },
+        "errors": {
+            "invalidFile": "File harus berupa JSON",
+            "invalidJson": "Format JSON tidak valid"
+        }
+    },
+    "candidate": {
+        "title": "Kandidat",
+        "subtitle": "Kelola dan pantau semua kandidat",
+        "add": "Tambah File JSON Kandidat",
+        "search": "Cari kandidat...",
+        "status": "Status"
+    },
+    "status": {
+        "all": "Semua Status",
+        "hired": "Diterima",
+        "in_review": "Dalam Review",
+        "pending": "Menunggu",
+        "rejected": "Ditolak"
+    },
+    "settings": {
+        "title": "Pengaturan",
+        "subtitle": "Kelola preferensi akun anda",
+        "notifications": {
+            "title": "Notifikasi",
+            "desc": "Atur bagaimana anda menerima notifikasi",
+            "email": "Notifikasi Email",
+            "email_desc": "Terima notifikasi melalui email",
+            "push": "Notifikasi Push",
+            "push_desc": "Terima notifikasi di browser",
+            "weekly": "Laporan Mingguan",
+            "weekly_desc": "Ringkasan aktivitas mingguan",
+            "new_candidate": "Kandidat Baru",
+            "new_candidate_desc": "Dapatkan notifikasi kandidat baru",
+            "analysis": "Analisis Selesai",
+            "analysis_desc": "Notifikasi hasil interview selesai"
+        },
+        "appearance": {
+            "title": "Tampilan",
+            "desc": "Sesuaikan tampilan aplikasi",
+            "theme": "Tema",
+            "language": "Bahasa"
+        },
+        "security": {
+            "title": "Keamanan & Privasi",
+            "desc": "Atur keamanan akun",
+            "2fa": "Autentikasi Dua Faktor",
+            "2fa_desc": "Tambahan keamanan akun",
+            "sessions": "Sesi Aktif",
+            "sessions_desc": "Kelola perangkat login"
+        },
+        "billing": {
+            "title": "Tagihan",
+            "desc": "Kelola langganan",
+            "plan": "Paket Profesional"
+        },
+        "data": {
+            "title": "Manajemen Data",
+            "desc": "Ekspor atau hapus data anda",
+            "export": "Ekspor Data",
+            "export_desc": "Unduh data dalam format CSV",
+            "delete": "Hapus Akun",
+            "delete_desc": "Hapus akun secara permanen"
+        }
+    },
+    "theme": {
+        "dark": "Gelap",
+        "light": "Terang",
+        "system": "Sistem"
+    },
+    "common": {
+        "enable": "Aktifkan",
+        "view_all": "Lihat Semua",
+        "upgrade": "Upgrade",
+        "export": "Ekspor",
+        "delete": "Hapus"
     }
 }

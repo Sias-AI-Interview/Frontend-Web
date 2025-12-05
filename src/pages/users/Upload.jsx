@@ -1,5 +1,7 @@
 import { useCallback } from "react"
 import { useDropzone } from "react-dropzone"
+import { useTranslation } from "react-i18next"
+
 import DashboardLayout from "@/layouts/DashboardLayout"
 import { useUploadStore } from "@/store/useUploadStore"
 import { uploadSchema } from "@/validations/uploadSchema"
@@ -15,8 +17,12 @@ import {
     Upload, FileJson, X, CheckCircle, AlertCircle, Loader2,
 } from "lucide-react"
 import { toast } from "sonner"
+import certificate from "@/data/certificate.json"
+import JsonExampleDrawer from "@/components/section/HintJson"
 
 export default function UploadPage() {
+    const { t } = useTranslation()
+
     const {
         files,
         analysisResult,
@@ -41,7 +47,7 @@ export default function UploadPage() {
             const file = acceptedFiles[0]
 
             if (!file || file.type !== "application/json") {
-                throw new Error("File harus berupa JSON")
+                throw new Error(t("upload.errors.invalidFile"))
             }
 
             const text = await file.text()
@@ -50,7 +56,7 @@ export default function UploadPage() {
             try {
                 json = JSON.parse(text)
             } catch {
-                throw new Error("Format JSON tidak valid")
+                throw new Error(t("upload.errors.invalidJson"))
             }
 
             await uploadSchema.validate(json, { abortEarly: false })
@@ -75,13 +81,13 @@ export default function UploadPage() {
                 }))
             )
 
-            toast.success(res.data?.message || "Upload & analysis berhasil")
+            toast.success(res.data?.message || t("upload.toast.success"))
         } catch (err) {
             const errorMsg =
                 err?.response?.data?.message ||
                 err?.errors?.[0] ||
                 err?.message ||
-                "Upload gagal"
+                t("upload.toast.failed")
 
             setAnalysisResult({
                 success: false,
@@ -100,8 +106,7 @@ export default function UploadPage() {
         } finally {
             setLoading(false)
         }
-    }, [])
-
+    }, [t])
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
@@ -119,22 +124,27 @@ export default function UploadPage() {
         <DashboardLayout>
             <div className="space-y-6 p-8">
                 <div>
-                    <h1 className="text-2xl font-bold text-white">Upload Payload</h1>
-                    <p className="text-gray-400">Upload JSON file only</p>
+                    <h1 className="text-2xl font-bold text-white">
+                        {t("upload.title")}
+                    </h1>
+                    <p className="text-gray-400">
+                        {t("upload.subtitle")}
+                    </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="grid gap-6 lg:grid-cols-2">
 
+                    {/* LEFT CARD */}
                     <Card className="border-[#6EACDA]/20 bg-[#0a2a3f] relative overflow-hidden">
                         <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-[#6EACDA]/10 via-transparent to-transparent" />
 
                         <CardHeader>
                             <CardTitle className="text-white flex items-center gap-2">
                                 <FileJson className="h-5 w-5 text-[#6EACDA]" />
-                                JSON Upload
+                                {t("upload.jsonUpload")}
                             </CardTitle>
                             <CardDescription className="text-gray-400">
-                                Drag & drop payload JSON sesuai format Dev Certification Machine Learning
+                                {t("upload.description")}
                             </CardDescription>
                         </CardHeader>
 
@@ -143,8 +153,8 @@ export default function UploadPage() {
                             <div
                                 {...getRootProps()}
                                 className={`cursor-pointer rounded-xl border-2 border-dashed p-10 text-center transition-all duration-200 ${isDragActive
-                                    ? "border-[#6EACDA] bg-[#6EACDA]/10 scale-[1.01]"
-                                    : "border-[#6EACDA]/30 hover:border-[#6EACDA]/60 hover:bg-[#6EACDA]/5"
+                                        ? "border-[#6EACDA] bg-[#6EACDA]/10 scale-[1.01]"
+                                        : "border-[#6EACDA]/30 hover:border-[#6EACDA]/60 hover:bg-[#6EACDA]/5"
                                     }`}
                             >
                                 <input {...getInputProps()} />
@@ -154,9 +164,13 @@ export default function UploadPage() {
                                     </div>
                                     <div>
                                         <p className="text-white font-semibold">
-                                            {isDragActive ? "Drop JSON di sini" : "Drag & drop file JSON"}
+                                            {isDragActive
+                                                ? t("upload.dropHere")
+                                                : t("upload.dragHere")}
                                         </p>
-                                        <p className="text-xs text-gray-400 mt-1">Hanya .json | Maksimal 1 file</p>
+                                        <p className="text-xs text-gray-400 mt-1">
+                                            {t("upload.fileRule")}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +195,9 @@ export default function UploadPage() {
 
                                             <div className="flex items-center gap-2">
                                                 {loading && <Loader2 className="h-5 w-5 animate-spin text-[#6EACDA]" />}
-                                                {!loading && item.status === "completed" && <CheckCircle className="h-5 w-5 text-green-400" />}
+                                                {!loading && item.status === "completed" && (
+                                                    <CheckCircle className="h-5 w-5 text-green-400" />
+                                                )}
                                                 <button
                                                     type="button"
                                                     onClick={clearFiles}
@@ -195,14 +211,19 @@ export default function UploadPage() {
                                 </div>
                             )}
 
+                            <JsonExampleDrawer jsonExample={certificate} />
+
                         </CardContent>
                     </Card>
 
+                    {/* RIGHT CARD */}
                     <Card className="border-[#6EACDA]/20 bg-[#0a2a3f]">
                         <CardHeader>
-                            <CardTitle className="text-white">Analysis Result</CardTitle>
+                            <CardTitle className="text-white">
+                                {t("upload.analysisTitle")}
+                            </CardTitle>
                             <CardDescription className="text-gray-400">
-                                JSON Output
+                                {t("upload.jsonOutput")}
                             </CardDescription>
                         </CardHeader>
 
@@ -210,7 +231,7 @@ export default function UploadPage() {
                             {!analysisResult ? (
                                 <div className="flex flex-col items-center justify-center text-center py-12 text-gray-400">
                                     <AlertCircle className="mb-3 h-10 w-10 text-[#6EACDA]" />
-                                    <p className="text-sm">No result yet</p>
+                                    <p className="text-sm">{t("upload.noResult")}</p>
                                 </div>
                             ) : (
                                 <pre className="max-h-[400px] overflow-auto rounded-lg bg-[#021526] p-4 text-xs text-green-400 border border-[#6EACDA]/20">
@@ -224,7 +245,7 @@ export default function UploadPage() {
                                 disabled={!files.length || loading}
                             >
                                 <Upload className="mr-2 h-4 w-4" />
-                                Start Analysis
+                                {t("upload.startAnalysis")}
                             </Button>
                         </CardContent>
                     </Card>
