@@ -564,24 +564,28 @@
     },
     "upload": {
         "title": "Upload Payload",
-        "subtitle": "Upload file JSON saja",
+        "subtitle": "Hanya upload file JSON",
         "jsonUpload": "Upload JSON",
-        "description": "Drag & drop payload JSON sesuai format Dev Certification Machine Learning",
+        "description": "Drag & drop payload JSON sesuai format sertifikasi Dev Machine Learning",
         "dragHere": "Drag & drop file JSON",
-        "dropHere": "Drop JSON di sini",
+        "dropHere": "Lepaskan JSON di sini",
         "fileRule": "Hanya .json | Maksimal 1 file",
         "analysisTitle": "Hasil Analisis",
         "jsonOutput": "Output JSON",
         "noResult": "Belum ada hasil",
         "startAnalysis": "Mulai Analisis",
+        "recenly": {
+            "title": "Payload Terakhir Diupload"
+        },
         "toast": {
-            "success": "Upload & analisis berhasil",
-            "failed": "Upload gagal"
+            "success": "Proses berhasil",
+            "failed": "Proses gagal"
         },
         "errors": {
-            "invalidFile": "File harus berupa JSON",
+            "invalidFile": "File harus berformat JSON",
             "invalidJson": "Format JSON tidak valid"
-        }
+        },
+        "confirmDelete": "Hapus payload ini?"
     },
     "candidate": {
         "title": "Kandidat",
@@ -651,7 +655,12 @@
         "enable": "Aktifkan",
         "view_all": "Lihat Semua",
         "upgrade": "Upgrade",
+        "cancel": "Batal",
         "export": "Ekspor",
+        "delete": "Hapus"
+    },
+    "tooltip": {
+        "preview-use": "Preview & Gunakan",
         "delete": "Hapus"
     }
 }

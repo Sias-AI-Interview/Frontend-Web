@@ -27,6 +27,9 @@ import {
     ExternalLink,
 } from "lucide-react"
 import DashboardLayout from "@/layouts/DashboardLayout"
+import { useEffect } from "react"
+import { useUploadStore } from "@/store/useUploadStore"
+import { useParams } from "react-router-dom"
 
 // Mock data based on the JSON structure
 const candidateData = {
@@ -129,12 +132,40 @@ const candidateData = {
 }
 
 export default function CandidateDetailPage() {
-    const { data } = candidateData
-    const [expandedVideo, setExpandedVideo] = useState()
+    const { id } = useParams()
+    const { fetchPayloadDetail, payloadDetail, payloadDetailLoading } = useUploadStore()
+
+    const [expandedVideo, setExpandedVideo] = useState(null)
     const [interviewScores, setInterviewScores] = useState({})
     const [reviewNotes, setReviewNotes] = useState("")
 
-    const getStatusColor = () => {
+    useEffect(() => {
+        fetchPayloadDetail(id)
+    }, [])
+
+    const data = payloadDetail?.payload.data
+    
+    // console.log(payloadDetail?.payload)
+
+    // console.log(data.data?.candidate?.photoUrl)
+
+    if (payloadDetailLoading) {
+        return (
+            <DashboardLayout>
+                <div className="p-10 text-center text-gray-400">Loading...</div>
+            </DashboardLayout>
+        )
+    }
+
+    if (!data) {
+        return (
+            <DashboardLayout>
+                <div className="p-10 text-center text-gray-400">Data tidak ditemukan</div>
+            </DashboardLayout>
+        )
+    }
+
+    const getStatusColor = (status) => {
         switch (status) {
             case "FINISHED":
                 return "bg-green-500/20 text-green-400 border-green-500/30"
@@ -150,31 +181,17 @@ export default function CandidateDetailPage() {
     const getDecisionBadge = (decision) => {
         switch (decision) {
             case "PASSED":
-                return (
-                    <Badge className="bg-green-500/20 text-green-400 border border-green-500/30 gap-1">
-                        <CheckCircle2 className="h-3 w-3" />
-                        Passed
-                    </Badge>
-                )
+                return <Badge className="bg-green-500/20 text-green-400 border border-green-500/30">Passed</Badge>
             case "FAILED":
-                return (
-                    <Badge className="bg-red-500/20 text-red-400 border border-red-500/30 gap-1">
-                        <XCircle className="h-3 w-3" />
-                        Failed
-                    </Badge>
-                )
+                return <Badge className="bg-red-500/20 text-red-400 border border-red-500/30">Failed</Badge>
             default:
-                return (
-                    <Badge className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 gap-1">
-                        <Clock className="h-3 w-3" />
-                        Pending
-                    </Badge>
-                )
+                return <Badge className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">Pending</Badge>
         }
     }
 
     const formatDate = (dateString) => {
-        return new Date(dateString).toLocaleDateString("en-US", {
+        return new Date(dateString).toLocaleString("id-ID", {
+            weekday: "long",
             year: "numeric",
             month: "long",
             day: "numeric",
@@ -196,7 +213,7 @@ export default function CandidateDetailPage() {
                 <div className="space-y-6 p-8">
                     {/* Back Button & Header */}
                     <div className="flex items-center gap-4">
-                        <Link to="/dashboard/candidates">
+                        <Link to="/dashboard/assesment-result">
                             <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-400 hover:text-white">
                                 <ArrowLeft className="h-4 w-4" />
                             </Button>

@@ -574,13 +574,21 @@
     "jsonOutput": "JSON Output",
     "noResult": "No result yet",
     "startAnalysis": "Start Analysis",
+    "recenly": {
+      "title": "Recently Uploaded Payload"
+    },
     "toast": {
-      "success": "Upload & analysis successful",
-      "failed": "Upload failed"
+      "success": "Process successful",
+      "failed": "Process failed"
     },
     "errors": {
-      "invalidFile": "File must be JSON format",
+      "invalidFile": "File must be in JSON format",
       "invalidJson": "Invalid JSON format"
+    },
+    "confirmDelete": "Delete this payload?",
+    "common": {
+      "cancel": "Cancel",
+      "delete": "Delete"
     }
   },
   "candidate": {
@@ -652,6 +660,11 @@
     "view_all": "View All",
     "upgrade": "Upgrade",
     "export": "Export",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "tooltip": {
+    "preview-use": "Preview & Use",
     "delete": "Delete"
   }
 }
