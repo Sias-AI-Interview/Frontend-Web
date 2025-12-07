@@ -32,104 +32,104 @@ import { useUploadStore } from "@/store/useUploadStore"
 import { useParams } from "react-router-dom"
 
 // Mock data based on the JSON structure
-const candidateData = {
-    success: true,
-    data: {
-        id: 131,
-        candidate: {
-            name: "John Doe",
-            email: "johndoe@gmail.com",
-            photoUrl: "/professional-man-portrait.png",
-        },
-        certification: {
-            abbreviatedType: "DCML",
-            normalType: "DEV_CERTIFICATION_MACHINE_LEARNING",
-            submittedAt: "2025-08-02 07:49:52",
-            status: "FINISHED",
-            projectType: "dcml_package_1",
-            interviewQuestionSets: 1,
-            examScore: 94.33,
-            autoGraderProjectScore: 100,
-            downloadProjectUrl: "https://example.com/download",
-            isReviewedByMe: false,
-            isAlreadyReviewedByMe: false,
-            assess: {
-                project: false,
-                interviews: true,
-            },
-        },
-        reviewChecklists: {
-            project: [],
-            interviews: [
-                {
-                    positionId: 1,
-                    question:
-                        "Can you share any specific challenges you faced while working on certification and how you overcame them?",
-                    isVideoExist: true,
-                    recordedVideoUrl: "https://drive.google.com/file/d/1Ft6JnBuH3Id2DlGTznQpABivgtSg3uoe/view?usp=sharing",
-                },
-                {
-                    positionId: 2,
-                    question:
-                        "Can you describe your experience with transfer learning in TensorFlow? How did it benefit your projects?",
-                    isVideoExist: true,
-                    recordedVideoUrl: "https://drive.google.com/file/d/1_UCAEXNa3ueoCL7WTi2sjYPHi09WXTKV/view?usp=sharing",
-                },
-                {
-                    positionId: 3,
-                    question:
-                        "Describe a complex TensorFlow model you have built and the steps you took to ensure its accuracy and efficiency.",
-                    isVideoExist: true,
-                    recordedVideoUrl: "https://drive.google.com/file/d/1rktur9TPIdBRVTT9F_bVBvQ2IhD14yWI/view?usp=sharing",
-                },
-                {
-                    positionId: 4,
-                    question: "Explain how to implement dropout in a TensorFlow model and the effect it has on training.",
-                    isVideoExist: true,
-                    recordedVideoUrl: "https://drive.google.com/file/d/1co3oTuvGqbO6muKZ1v3dSdVd0uznge8B/view?usp=sharing",
-                },
-                {
-                    positionId: 5,
-                    question:
-                        "Describe the process of building a convolutional neural network (CNN) using TensorFlow for image classification.",
-                    isVideoExist: true,
-                    recordedVideoUrl: "https://drive.google.com/file/d/1qbQl3q_YZbhMrPvb6hpf1APpxvLwgDKJ/view?usp=sharing",
-                },
-            ],
-        },
-        pastReviews: [
-            {
-                assessorProfile: {
-                    id: 47,
-                    name: "Sarah Johnson",
-                    photoUrl: "/professional-woman.png",
-                },
-                decision: "PASSED",
-                reviewedAt: "2025-08-06 21:19:05",
-                scoresOverview: {
-                    project: 100,
-                    interview: 80,
-                    total: 94.3,
-                },
-                reviewChecklistResult: {
-                    project: [],
-                    interviews: {
-                        minScore: 0,
-                        maxScore: 4,
-                        scores: [
-                            { id: 1, score: 3 },
-                            { id: 2, score: 3 },
-                            { id: 3, score: 4 },
-                            { id: 4, score: 3 },
-                            { id: 5, score: 3 },
-                        ],
-                    },
-                },
-                notes: "Great performance, not suspicious at all. Candidate demonstrated strong understanding of ML concepts.",
-            },
-        ],
-    },
-}
+// const candidateData = {
+//     success: true,
+//     data: {
+//         id: 131,
+//         candidate: {
+//             name: "John Doe",
+//             email: "johndoe@gmail.com",
+//             photoUrl: "/professional-man-portrait.png",
+//         },
+//         certification: {
+//             abbreviatedType: "DCML",
+//             normalType: "DEV_CERTIFICATION_MACHINE_LEARNING",
+//             submittedAt: "2025-08-02 07:49:52",
+//             status: "FINISHED",
+//             projectType: "dcml_package_1",
+//             interviewQuestionSets: 1,
+//             examScore: 94.33,
+//             autoGraderProjectScore: 100,
+//             downloadProjectUrl: "https://example.com/download",
+//             isReviewedByMe: false,
+//             isAlreadyReviewedByMe: false,
+//             assess: {
+//                 project: false,
+//                 interviews: true,
+//             },
+//         },
+//         reviewChecklists: {
+//             project: [],
+//             interviews: [
+//                 {
+//                     positionId: 1,
+//                     question:
+//                         "Can you share any specific challenges you faced while working on certification and how you overcame them?",
+//                     isVideoExist: true,
+//                     recordedVideoUrl: "https://drive.google.com/file/d/1Ft6JnBuH3Id2DlGTznQpABivgtSg3uoe/view?usp=sharing",
+//                 },
+//                 {
+//                     positionId: 2,
+//                     question:
+//                         "Can you describe your experience with transfer learning in TensorFlow? How did it benefit your projects?",
+//                     isVideoExist: true,
+//                     recordedVideoUrl: "https://drive.google.com/file/d/1_UCAEXNa3ueoCL7WTi2sjYPHi09WXTKV/view?usp=sharing",
+//                 },
+//                 {
+//                     positionId: 3,
+//                     question:
+//                         "Describe a complex TensorFlow model you have built and the steps you took to ensure its accuracy and efficiency.",
+//                     isVideoExist: true,
+//                     recordedVideoUrl: "https://drive.google.com/file/d/1rktur9TPIdBRVTT9F_bVBvQ2IhD14yWI/view?usp=sharing",
+//                 },
+//                 {
+//                     positionId: 4,
+//                     question: "Explain how to implement dropout in a TensorFlow model and the effect it has on training.",
+//                     isVideoExist: true,
+//                     recordedVideoUrl: "https://drive.google.com/file/d/1co3oTuvGqbO6muKZ1v3dSdVd0uznge8B/view?usp=sharing",
+//                 },
+//                 {
+//                     positionId: 5,
+//                     question:
+//                         "Describe the process of building a convolutional neural network (CNN) using TensorFlow for image classification.",
+//                     isVideoExist: true,
+//                     recordedVideoUrl: "https://drive.google.com/file/d/1qbQl3q_YZbhMrPvb6hpf1APpxvLwgDKJ/view?usp=sharing",
+//                 },
+//             ],
+//         },
+//         pastReviews: [
+//             {
+//                 assessorProfile: {
+//                     id: 47,
+//                     name: "Sarah Johnson",
+//                     photoUrl: "/professional-woman.png",
+//                 },
+//                 decision: "PASSED",
+//                 reviewedAt: "2025-08-06 21:19:05",
+//                 scoresOverview: {
+//                     project: 100,
+//                     interview: 80,
+//                     total: 94.3,
+//                 },
+//                 reviewChecklistResult: {
+//                     project: [],
+//                     interviews: {
+//                         minScore: 0,
+//                         maxScore: 4,
+//                         scores: [
+//                             { id: 1, score: 3 },
+//                             { id: 2, score: 3 },
+//                             { id: 3, score: 4 },
+//                             { id: 4, score: 3 },
+//                             { id: 5, score: 3 },
+//                         ],
+//                     },
+//                 },
+//                 notes: "Great performance, not suspicious at all. Candidate demonstrated strong understanding of ML concepts.",
+//             },
+//         ],
+//     },
+// }
 
 export default function CandidateDetailPage() {
     const { id } = useParams()

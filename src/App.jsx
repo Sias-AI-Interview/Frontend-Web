@@ -17,6 +17,8 @@ import ReportsPage from "./pages/users/Reports";
 import CandidatesPage from "./pages/users/Candidates";
 import SettingsPage from "./pages/users/Settings";
 import CandidateDetailPage from "./pages/users/CandidateDetails";
+import AnalyzingPage from "./pages/users/AI-Analyzing";
+import AssessmentPage from "./pages/users/AI-Assesment";
 
 export default function App() {
   return (
@@ -66,6 +68,19 @@ export default function App() {
       <Route path="/dashboard/upload" element={
         <ProtectedRoute>
           <UploadPage />
+        </ProtectedRoute>
+      } />
+
+      <Route path="/dashboard/upload/ai-analyzing" element={
+        <ProtectedRoute>
+          <AnalyzingPage />
+        </ProtectedRoute>
+      } />
+
+
+      <Route path="/dashboard/upload/ai-assessment" element={
+        <ProtectedRoute>
+          <AssessmentPage />
         </ProtectedRoute>
       } />
 
