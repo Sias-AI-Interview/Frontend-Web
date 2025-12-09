@@ -20,260 +20,263 @@ import {
     Clock,
 } from "lucide-react"
 import { Link } from "react-router-dom"
+import axiosInstance from "@/libs/axios"
+import { toast } from "sonner"
+import { useLocation } from "react-router-dom"
 
 
 
-const initialAssessments = [
-    {
-        videoIndex: 0,
-        videoName: "Interview_Q1_Challenges.mp4",
-        question:
-            "Can you share any specific challenges you faced while working on certification and how you overcome them?",
-        transcript:
-            "Ah, okay. Actually, for the challenges, there are some challenges when I took the certifications, especially for the project submission that I was already working with. The main challenge was time management because I had to balance my work responsibilities with studying for the certification. I overcame this by creating a strict schedule and dedicating specific hours each day to preparation.",
-        segments: [
-            {
-                id: 0,
-                start: 0.0,
-                end: 7.0,
-                text: "Can you share any specific challenges you faced while working on certification and how you overcome them?",
-                speaker: "Interviewer",
-            },
-            {
-                id: 1,
-                start: 7.0,
-                end: 28.0,
-                text: "Ah, okay. Actually, for the challenges, there are some challenges when I took the certifications, especially for the project submission that I was already working with.",
-                speaker: "Candidate",
-            },
-            {
-                id: 2,
-                start: 28.0,
-                end: 45.0,
-                text: "The main challenge was time management because I had to balance my work responsibilities with studying for the certification.",
-                speaker: "Candidate",
-            },
-            {
-                id: 3,
-                start: 45.0,
-                end: 58.0,
-                text: "I overcame this by creating a strict schedule and dedicating specific hours each day to preparation.",
-                speaker: "Candidate",
-            },
-        ],
-        aiScore: null,
-        aiReason: null,
-        aiStrengths: [],
-        aiWeaknesses: [],
-        aiSuggestions: [],
-        status: "queue",
-        queuePosition: 1,
-    },
-    {
-        videoIndex: 1,
-        videoName: "Interview_Q2_ML_Experience.mp4",
-        question: "Tell me about your experience with machine learning frameworks?",
-        transcript:
-            "I have extensive experience with TensorFlow and PyTorch. I've worked on several deep learning projects including image classification and NLP tasks. In my previous role, I developed a sentiment analysis model that improved customer feedback processing by 40%. I also have experience with scikit-learn for traditional ML algorithms and have deployed models using Docker and Kubernetes.",
-        segments: [
-            {
-                id: 0,
-                start: 0.0,
-                end: 5.0,
-                text: "Tell me about your experience with machine learning frameworks?",
-                speaker: "Interviewer",
-            },
-            {
-                id: 1,
-                start: 5.0,
-                end: 20.0,
-                text: "I have extensive experience with TensorFlow and PyTorch. I've worked on several deep learning projects including image classification and NLP tasks.",
-                speaker: "Candidate",
-            },
-            {
-                id: 2,
-                start: 20.0,
-                end: 35.0,
-                text: "In my previous role, I developed a sentiment analysis model that improved customer feedback processing by 40%.",
-                speaker: "Candidate",
-            },
-            {
-                id: 3,
-                start: 35.0,
-                end: 48.0,
-                text: "I also have experience with scikit-learn for traditional ML algorithms and have deployed models using Docker and Kubernetes.",
-                speaker: "Candidate",
-            },
-        ],
-        aiScore: null,
-        aiReason: null,
-        aiStrengths: [],
-        aiWeaknesses: [],
-        aiSuggestions: [],
-        status: "queue",
-        queuePosition: 2,
-    },
-    {
-        videoIndex: 2,
-        videoName: "Interview_Q3_Deadlines.mp4",
-        question: "How do you handle tight deadlines?",
-        transcript:
-            "I prioritize tasks based on impact and urgency. I also communicate proactively with stakeholders if there are any blockers or risks to the timeline. I use project management tools like Jira to track progress and ensure nothing falls through the cracks. When facing tight deadlines, I break down large tasks into smaller manageable chunks and focus on delivering MVP first.",
-        segments: [
-            { id: 0, start: 0.0, end: 4.0, text: "How do you handle tight deadlines?", speaker: "Interviewer" },
-            {
-                id: 1,
-                start: 4.0,
-                end: 18.0,
-                text: "I prioritize tasks based on impact and urgency. I also communicate proactively with stakeholders if there are any blockers or risks to the timeline.",
-                speaker: "Candidate",
-            },
-            {
-                id: 2,
-                start: 18.0,
-                end: 30.0,
-                text: "I use project management tools like Jira to track progress and ensure nothing falls through the cracks.",
-                speaker: "Candidate",
-            },
-            {
-                id: 3,
-                start: 30.0,
-                end: 42.0,
-                text: "When facing tight deadlines, I break down large tasks into smaller manageable chunks and focus on delivering MVP first.",
-                speaker: "Candidate",
-            },
-        ],
-        aiScore: null,
-        aiReason: null,
-        aiStrengths: [],
-        aiWeaknesses: [],
-        aiSuggestions: [],
-        status: "queue",
-        queuePosition: 3,
-    },
-    {
-        videoIndex: 3,
-        videoName: "Interview_Q4_Teamwork.mp4",
-        question: "Describe a situation where you had to work with a difficult team member.",
-        transcript:
-            "In my previous project, I worked with a team member who had different working styles. They preferred working alone and rarely communicated progress. I initiated regular sync meetings and created a shared document for updates. By establishing clear communication channels and understanding their perspective, we improved collaboration and successfully delivered the project on time.",
-        segments: [
-            {
-                id: 0,
-                start: 0.0,
-                end: 5.0,
-                text: "Describe a situation where you had to work with a difficult team member.",
-                speaker: "Interviewer",
-            },
-            {
-                id: 1,
-                start: 5.0,
-                end: 18.0,
-                text: "In my previous project, I worked with a team member who had different working styles. They preferred working alone and rarely communicated progress.",
-                speaker: "Candidate",
-            },
-            {
-                id: 2,
-                start: 18.0,
-                end: 32.0,
-                text: "I initiated regular sync meetings and created a shared document for updates.",
-                speaker: "Candidate",
-            },
-            {
-                id: 3,
-                start: 32.0,
-                end: 45.0,
-                text: "By establishing clear communication channels and understanding their perspective, we improved collaboration and successfully delivered the project on time.",
-                speaker: "Candidate",
-            },
-        ],
-        aiScore: null,
-        aiReason: null,
-        aiStrengths: [],
-        aiWeaknesses: [],
-        aiSuggestions: [],
-        status: "queue",
-        queuePosition: 4,
-    },
-]
+// const initialAssessments = [
+//     {
+//         videoIndex: 0,
+//         videoName: "Interview_Q1_Challenges.mp4",
+//         question:
+//             "Can you share any specific challenges you faced while working on certification and how you overcome them?",
+//         transcript:
+//             "Ah, okay. Actually, for the challenges, there are some challenges when I took the certifications, especially for the project submission that I was already working with. The main challenge was time management because I had to balance my work responsibilities with studying for the certification. I overcame this by creating a strict schedule and dedicating specific hours each day to preparation.",
+//         segments: [
+//             {
+//                 id: 0,
+//                 start: 0.0,
+//                 end: 7.0,
+//                 text: "Can you share any specific challenges you faced while working on certification and how you overcome them?",
+//                 speaker: "Interviewer",
+//             },
+//             {
+//                 id: 1,
+//                 start: 7.0,
+//                 end: 28.0,
+//                 text: "Ah, okay. Actually, for the challenges, there are some challenges when I took the certifications, especially for the project submission that I was already working with.",
+//                 speaker: "Candidate",
+//             },
+//             {
+//                 id: 2,
+//                 start: 28.0,
+//                 end: 45.0,
+//                 text: "The main challenge was time management because I had to balance my work responsibilities with studying for the certification.",
+//                 speaker: "Candidate",
+//             },
+//             {
+//                 id: 3,
+//                 start: 45.0,
+//                 end: 58.0,
+//                 text: "I overcame this by creating a strict schedule and dedicating specific hours each day to preparation.",
+//                 speaker: "Candidate",
+//             },
+//         ],
+//         aiScore: null,
+//         aiReason: null,
+//         aiStrengths: [],
+//         aiWeaknesses: [],
+//         aiSuggestions: [],
+//         status: "queue",
+//         queuePosition: 1,
+//     },
+//     {
+//         videoIndex: 1,
+//         videoName: "Interview_Q2_ML_Experience.mp4",
+//         question: "Tell me about your experience with machine learning frameworks?",
+//         transcript:
+//             "I have extensive experience with TensorFlow and PyTorch. I've worked on several deep learning projects including image classification and NLP tasks. In my previous role, I developed a sentiment analysis model that improved customer feedback processing by 40%. I also have experience with scikit-learn for traditional ML algorithms and have deployed models using Docker and Kubernetes.",
+//         segments: [
+//             {
+//                 id: 0,
+//                 start: 0.0,
+//                 end: 5.0,
+//                 text: "Tell me about your experience with machine learning frameworks?",
+//                 speaker: "Interviewer",
+//             },
+//             {
+//                 id: 1,
+//                 start: 5.0,
+//                 end: 20.0,
+//                 text: "I have extensive experience with TensorFlow and PyTorch. I've worked on several deep learning projects including image classification and NLP tasks.",
+//                 speaker: "Candidate",
+//             },
+//             {
+//                 id: 2,
+//                 start: 20.0,
+//                 end: 35.0,
+//                 text: "In my previous role, I developed a sentiment analysis model that improved customer feedback processing by 40%.",
+//                 speaker: "Candidate",
+//             },
+//             {
+//                 id: 3,
+//                 start: 35.0,
+//                 end: 48.0,
+//                 text: "I also have experience with scikit-learn for traditional ML algorithms and have deployed models using Docker and Kubernetes.",
+//                 speaker: "Candidate",
+//             },
+//         ],
+//         aiScore: null,
+//         aiReason: null,
+//         aiStrengths: [],
+//         aiWeaknesses: [],
+//         aiSuggestions: [],
+//         status: "queue",
+//         queuePosition: 2,
+//     },
+//     {
+//         videoIndex: 2,
+//         videoName: "Interview_Q3_Deadlines.mp4",
+//         question: "How do you handle tight deadlines?",
+//         transcript:
+//             "I prioritize tasks based on impact and urgency. I also communicate proactively with stakeholders if there are any blockers or risks to the timeline. I use project management tools like Jira to track progress and ensure nothing falls through the cracks. When facing tight deadlines, I break down large tasks into smaller manageable chunks and focus on delivering MVP first.",
+//         segments: [
+//             { id: 0, start: 0.0, end: 4.0, text: "How do you handle tight deadlines?", speaker: "Interviewer" },
+//             {
+//                 id: 1,
+//                 start: 4.0,
+//                 end: 18.0,
+//                 text: "I prioritize tasks based on impact and urgency. I also communicate proactively with stakeholders if there are any blockers or risks to the timeline.",
+//                 speaker: "Candidate",
+//             },
+//             {
+//                 id: 2,
+//                 start: 18.0,
+//                 end: 30.0,
+//                 text: "I use project management tools like Jira to track progress and ensure nothing falls through the cracks.",
+//                 speaker: "Candidate",
+//             },
+//             {
+//                 id: 3,
+//                 start: 30.0,
+//                 end: 42.0,
+//                 text: "When facing tight deadlines, I break down large tasks into smaller manageable chunks and focus on delivering MVP first.",
+//                 speaker: "Candidate",
+//             },
+//         ],
+//         aiScore: null,
+//         aiReason: null,
+//         aiStrengths: [],
+//         aiWeaknesses: [],
+//         aiSuggestions: [],
+//         status: "queue",
+//         queuePosition: 3,
+//     },
+//     {
+//         videoIndex: 3,
+//         videoName: "Interview_Q4_Teamwork.mp4",
+//         question: "Describe a situation where you had to work with a difficult team member.",
+//         transcript:
+//             "In my previous project, I worked with a team member who had different working styles. They preferred working alone and rarely communicated progress. I initiated regular sync meetings and created a shared document for updates. By establishing clear communication channels and understanding their perspective, we improved collaboration and successfully delivered the project on time.",
+//         segments: [
+//             {
+//                 id: 0,
+//                 start: 0.0,
+//                 end: 5.0,
+//                 text: "Describe a situation where you had to work with a difficult team member.",
+//                 speaker: "Interviewer",
+//             },
+//             {
+//                 id: 1,
+//                 start: 5.0,
+//                 end: 18.0,
+//                 text: "In my previous project, I worked with a team member who had different working styles. They preferred working alone and rarely communicated progress.",
+//                 speaker: "Candidate",
+//             },
+//             {
+//                 id: 2,
+//                 start: 18.0,
+//                 end: 32.0,
+//                 text: "I initiated regular sync meetings and created a shared document for updates.",
+//                 speaker: "Candidate",
+//             },
+//             {
+//                 id: 3,
+//                 start: 32.0,
+//                 end: 45.0,
+//                 text: "By establishing clear communication channels and understanding their perspective, we improved collaboration and successfully delivered the project on time.",
+//                 speaker: "Candidate",
+//             },
+//         ],
+//         aiScore: null,
+//         aiReason: null,
+//         aiStrengths: [],
+//         aiWeaknesses: [],
+//         aiSuggestions: [],
+//         status: "queue",
+//         queuePosition: 4,
+//     },
+// ]
 
-// AI response simulation
-const aiResponses = [
-    {
-        score: 3,
-        reason:
-            "Kandidat menunjukkan pemahaman yang baik tentang tantangan yang dihadapi selama proses sertifikasi. Jawaban terstruktur dengan jelas, dimulai dari identifikasi masalah (time management) hingga solusi konkret (strict schedule). Kandidat mendemonstrasikan self-awareness dan kemampuan problem-solving yang solid.",
-        strengths: [
-            "Mampu mengidentifikasi tantangan spesifik dengan jelas",
-            "Memberikan solusi konkret dan actionable",
-            "Menunjukkan kemampuan time management",
-            "Jawaban terstruktur dengan baik (problem → solution)",
-        ],
-        weaknesses: [
-            "Kurang menyebutkan hasil spesifik dari strategi yang diterapkan",
-            "Tidak memberikan contoh timeline atau durasi studi",
-            "Bisa lebih detail tentang tools yang digunakan",
-        ],
-        suggestions: [
-            "Tambahkan metrik keberhasilan (misal: lulus dalam X bulan)",
-            "Sebutkan tools spesifik untuk scheduling",
-            "Berikan contoh bagaimana menyeimbangkan work dan study secara konkret",
-        ],
-    },
-    {
-        score: 4,
-        reason:
-            "Jawaban sangat komprehensif dan menunjukkan keahlian teknis yang mendalam. Kandidat menyebutkan framework spesifik (TensorFlow, PyTorch, scikit-learn), proyek konkret (image classification, NLP, sentiment analysis), dan hasil terukur (40% improvement). Pengetahuan deployment (Docker, Kubernetes) menambah nilai signifikan.",
-        strengths: [
-            "Menyebutkan multiple frameworks dengan expertise level",
-            "Memberikan contoh proyek konkret dan beragam",
-            "Hasil terukur (40% improvement) sangat impressive",
-            "Menunjukkan end-to-end capability hingga deployment",
-            "Technical depth yang excellent",
-        ],
-        weaknesses: ["Tidak menyebutkan ukuran tim atau kolaborasi", "Kurang detail tentang challenges yang dihadapi"],
-        suggestions: ["Tambahkan konteks tentang skala proyek", "Sebutkan bagaimana berkolaborasi dengan tim"],
-    },
-    {
-        score: 3,
-        reason:
-            "Kandidat memberikan pendekatan sistematis dan terstruktur dalam menangani deadline ketat. Strategi prioritization, komunikasi proaktif, dan penggunaan tools (Jira) menunjukkan profesionalisme. Pendekatan MVP-first mendemonstrasikan pragmatisme dan understanding of agile principles.",
-        strengths: [
-            "Pendekatan sistematis dengan prioritization framework",
-            "Komunikasi proaktif dengan stakeholders",
-            "Penggunaan project management tools",
-            "MVP-first mindset menunjukkan pragmatisme",
-            "Task breakdown strategy yang efektif",
-        ],
-        weaknesses: [
-            "Tidak memberikan contoh situasi nyata/spesifik",
-            "Kurang menyebutkan bagaimana handle stress",
-            "Tidak ada metrik keberhasilan",
-        ],
-        suggestions: [
-            "Berikan contoh kasus nyata dengan timeline spesifik",
-            "Sebutkan bagaimana mengelola stress dalam deadline ketat",
-            "Tambahkan contoh hasil yang dicapai dengan pendekatan ini",
-        ],
-    },
-    {
-        score: 4,
-        reason:
-            "Kandidat mendemonstrasikan emotional intelligence dan conflict resolution skills yang excellent. Pendekatan proaktif (inisiatif sync meetings, shared document) menunjukkan leadership. Kemampuan memahami perspektif orang lain dan fokus pada hasil (delivered on time) sangat positif.",
-        strengths: [
-            "Emotional intelligence yang tinggi",
-            "Proaktif dalam mencari solusi",
-            "Leadership initiative dalam team dynamics",
-            "Focus pada hasil dan delivery",
-            "Empati terhadap perspektif berbeda",
-        ],
-        weaknesses: ["Tidak detail tentang specific challenges yang dihadapi", "Kurang menjelaskan lessons learned"],
-        suggestions: [
-            "Tambahkan detail tentang friction points spesifik",
-            "Sebutkan apa yang dipelajari dari pengalaman tersebut",
-        ],
-    },
-]
+// // AI response simulation
+// const aiResponses = [
+//     {
+//         score: 3,
+//         reason:
+//             "Kandidat menunjukkan pemahaman yang baik tentang tantangan yang dihadapi selama proses sertifikasi. Jawaban terstruktur dengan jelas, dimulai dari identifikasi masalah (time management) hingga solusi konkret (strict schedule). Kandidat mendemonstrasikan self-awareness dan kemampuan problem-solving yang solid.",
+//         strengths: [
+//             "Mampu mengidentifikasi tantangan spesifik dengan jelas",
+//             "Memberikan solusi konkret dan actionable",
+//             "Menunjukkan kemampuan time management",
+//             "Jawaban terstruktur dengan baik (problem → solution)",
+//         ],
+//         weaknesses: [
+//             "Kurang menyebutkan hasil spesifik dari strategi yang diterapkan",
+//             "Tidak memberikan contoh timeline atau durasi studi",
+//             "Bisa lebih detail tentang tools yang digunakan",
+//         ],
+//         suggestions: [
+//             "Tambahkan metrik keberhasilan (misal: lulus dalam X bulan)",
+//             "Sebutkan tools spesifik untuk scheduling",
+//             "Berikan contoh bagaimana menyeimbangkan work dan study secara konkret",
+//         ],
+//     },
+//     {
+//         score: 4,
+//         reason:
+//             "Jawaban sangat komprehensif dan menunjukkan keahlian teknis yang mendalam. Kandidat menyebutkan framework spesifik (TensorFlow, PyTorch, scikit-learn), proyek konkret (image classification, NLP, sentiment analysis), dan hasil terukur (40% improvement). Pengetahuan deployment (Docker, Kubernetes) menambah nilai signifikan.",
+//         strengths: [
+//             "Menyebutkan multiple frameworks dengan expertise level",
+//             "Memberikan contoh proyek konkret dan beragam",
+//             "Hasil terukur (40% improvement) sangat impressive",
+//             "Menunjukkan end-to-end capability hingga deployment",
+//             "Technical depth yang excellent",
+//         ],
+//         weaknesses: ["Tidak menyebutkan ukuran tim atau kolaborasi", "Kurang detail tentang challenges yang dihadapi"],
+//         suggestions: ["Tambahkan konteks tentang skala proyek", "Sebutkan bagaimana berkolaborasi dengan tim"],
+//     },
+//     {
+//         score: 3,
+//         reason:
+//             "Kandidat memberikan pendekatan sistematis dan terstruktur dalam menangani deadline ketat. Strategi prioritization, komunikasi proaktif, dan penggunaan tools (Jira) menunjukkan profesionalisme. Pendekatan MVP-first mendemonstrasikan pragmatisme dan understanding of agile principles.",
+//         strengths: [
+//             "Pendekatan sistematis dengan prioritization framework",
+//             "Komunikasi proaktif dengan stakeholders",
+//             "Penggunaan project management tools",
+//             "MVP-first mindset menunjukkan pragmatisme",
+//             "Task breakdown strategy yang efektif",
+//         ],
+//         weaknesses: [
+//             "Tidak memberikan contoh situasi nyata/spesifik",
+//             "Kurang menyebutkan bagaimana handle stress",
+//             "Tidak ada metrik keberhasilan",
+//         ],
+//         suggestions: [
+//             "Berikan contoh kasus nyata dengan timeline spesifik",
+//             "Sebutkan bagaimana mengelola stress dalam deadline ketat",
+//             "Tambahkan contoh hasil yang dicapai dengan pendekatan ini",
+//         ],
+//     },
+//     {
+//         score: 4,
+//         reason:
+//             "Kandidat mendemonstrasikan emotional intelligence dan conflict resolution skills yang excellent. Pendekatan proaktif (inisiatif sync meetings, shared document) menunjukkan leadership. Kemampuan memahami perspektif orang lain dan fokus pada hasil (delivered on time) sangat positif.",
+//         strengths: [
+//             "Emotional intelligence yang tinggi",
+//             "Proaktif dalam mencari solusi",
+//             "Leadership initiative dalam team dynamics",
+//             "Focus pada hasil dan delivery",
+//             "Empati terhadap perspektif berbeda",
+//         ],
+//         weaknesses: ["Tidak detail tentang specific challenges yang dihadapi", "Kurang menjelaskan lessons learned"],
+//         suggestions: [
+//             "Tambahkan detail tentang friction points spesifik",
+//             "Sebutkan apa yang dipelajari dari pengalaman tersebut",
+//         ],
+//     },
+// ]
 
 function QueueLoader({ position }) {
     return (
@@ -300,7 +303,10 @@ function AnalyzingLoader() {
 }
 
 export default function AssessmentPage() {
-    const [assessments, setAssessments] = useState(initialAssessments)
+    const location = useLocation();
+    const payloadId = location.state?.payloadId || null;
+
+    const [assessments, setAssessments] = useState([])
     const [expandedVideos, setExpandedVideos] = useState([])
     const [playingVideo, setPlayingVideo] = useState(null)
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -308,52 +314,42 @@ export default function AssessmentPage() {
     const [currentProcessingIndex, setCurrentProcessingIndex] = useState(null)
 
     useEffect(() => {
-        startProcessing()
+        fetchAssessments()
     }, [])
 
-    const startProcessing = async () => {
+    const fetchAssessments = async () => {
         setIsProcessing(true)
+        try {
+            const res = await axiosInstance.get("assessment/get", { params: { payloadId: payloadId } })
+            const data = res.data.ml_results?.data
 
-        for (let i = 0; i < initialAssessments.length; i++) {
-            setCurrentProcessingIndex(i)
+            if (!data) {
+                toast.error("No ML results found")
+                return
+            }
 
-            // Update queue positions
-            setAssessments((prev) =>
-                prev.map((a, idx) => ({
-                    ...a,
-                    status: idx < i ? "done" : idx === i ? "analyzing" : "queue",
-                    queuePosition: idx > i ? idx - i : null,
-                })),
-            )
+            const reviewScores = data.reviewChecklistResult.interviews.scores || []
+            const mappedAssessments = reviewScores.map((item, idx) => ({
+                videoIndex: idx,
+                videoName: `Interview_Q${idx + 1}`,
+                question: `Question ${idx + 1}`,
+                transcript: item.reason || "",
+                segments: [{ id: 0, start: 0, end: 0, text: item.reason || "", speaker: "Candidate" }],
+                aiScore: item.score,
+                aiReason: item.reason,
+                aiStrengths: [],
+                aiWeaknesses: [],
+                aiSuggestions: [],
+                status: "done",
+                queuePosition: null,
+            }))
 
-            // Simulate AI processing time
-            await new Promise((resolve) => setTimeout(resolve, 2000 + Math.random() * 1500))
-
-            // Apply AI response
-            const aiResponse = aiResponses[i % aiResponses.length]
-            setAssessments((prev) =>
-                prev.map((a, idx) =>
-                    idx === i
-                        ? {
-                            ...a,
-                            status: "done",
-                            queuePosition: null,
-                            aiScore: aiResponse.score,
-                            aiReason: aiResponse.reason,
-                            aiStrengths: aiResponse.strengths,
-                            aiWeaknesses: aiResponse.weaknesses,
-                            aiSuggestions: aiResponse.suggestions,
-                        }
-                        : a,
-                ),
-            )
-
-            // Auto expand completed video
-            setExpandedVideos((prev) => [...prev, i])
+            setAssessments(mappedAssessments)
+        } catch (err) {
+            console.error("Failed to fetch assessments:", err)
+        } finally {
+            setIsProcessing(false)
         }
-
-        setIsProcessing(false)
-        setCurrentProcessingIndex(null)
     }
 
     const formatTime = (seconds) => {
@@ -363,14 +359,23 @@ export default function AssessmentPage() {
     }
 
     const toggleVideoExpand = (index) => {
-        setExpandedVideos((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
+        setExpandedVideos((prev) =>
+            prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+        )
     }
 
-    const handleSubmit = async () => {
-        setIsSubmitting(true)
-        await new Promise((resolve) => setTimeout(resolve, 1500))
-        setIsSubmitting(false)
-    }
+    // const handleSubmit = async () => {
+    //     setIsSubmitting(true)
+    //     try {
+    //         await axios.post("/api/assessment/submit", { assessments })
+    //         alert("Assessment submitted!")
+    //     } catch (err) {
+    //         console.error(err)
+    //         alert("Failed to submit assessment")
+    //     } finally {
+    //         setIsSubmitting(false)
+    //     }
+    // }
 
     const completedAssessments = assessments.filter((a) => a.status === "done").length
     const totalScore = assessments.reduce((sum, a) => sum + (a.aiScore || 0), 0)
@@ -469,24 +474,25 @@ export default function AssessmentPage() {
                                 </div>
                             )}
 
-                            <Button
-                                onClick={handleSubmit}
-                                size="sm"
-                                className="bg-[#6EACDA] text-[#021526] hover:bg-[#5a9bc9]"
-                                disabled={completedAssessments < assessments.length || isSubmitting}
-                            >
-                                {isSubmitting ? (
-                                    <>
-                                        <Loader2 className="w-3.5 h-3.5 mr-1.5 animate-spin" />
-                                        Submitting...
-                                    </>
-                                ) : (
-                                    <>
-                                        <Send className="w-3.5 h-3.5 mr-1.5" />
-                                        Submit Assessment
-                                    </>
-                                )}
-                            </Button>
+                            <Link to={`/dashboard/assesment-result/${payloadId}`}>
+                                <Button
+                                    size="sm"
+                                    className="bg-[#6EACDA] text-[#021526] hover:bg-[#5a9bc9]"
+                                    disabled={completedAssessments < assessments.length || isSubmitting}
+                                >
+                                    {isSubmitting ? (
+                                        <>
+                                            <Loader2 className="w-3.5 h-3.5 mr-1.5 animate-spin" />
+                                            Done Exiting...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Send className="w-3.5 h-3.5 mr-1.5" />
+                                            Done Exit
+                                        </>
+                                    )}
+                                </Button>
+                            </Link>
                         </div>
                     </div>
 

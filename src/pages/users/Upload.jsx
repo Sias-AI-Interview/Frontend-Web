@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
+import { useNavigate } from "react-router-dom";
 
 import {
     Upload, FileJson, X, CheckCircle, AlertCircle, Loader2, Trash2, Eye,
@@ -22,6 +23,7 @@ import JsonExampleDrawer from "@/components/section/HintJson"
 
 export default function UploadPage() {
     const { t } = useTranslation()
+    const navigate = useNavigate();
 
     const {
         files,
@@ -41,6 +43,7 @@ export default function UploadPage() {
     const [selectedPayload, setSelectedPayload] = useState(null)
     const [previewJson, setPreviewJson] = useState(null)
     const [isAnalyzing, setIsAnalyzing] = useState(false)
+    const [payloadId, setPayloadId] = useState(null);
 
     useEffect(() => {
         fetchPayloads()
@@ -49,6 +52,7 @@ export default function UploadPage() {
     const handleSelectPayload = (item) => {
         setSelectedPayload(item.payload)
         setPreviewJson(item.payload)
+        setPayloadId(item.id);
         clearFiles()
         toast.success(t("upload.toast.success"))
     }
@@ -87,7 +91,8 @@ export default function UploadPage() {
                 headers: { "Content-Type": "application/json" },
             })
 
-            setPreviewJson(res.data)
+            setPreviewJson(res.data.payload);
+            setPayloadId(res.data.id);
 
             setFiles((prev) =>
                 prev.map((f) => ({
@@ -128,33 +133,63 @@ export default function UploadPage() {
         maxFiles: 1,
     })
 
+    // const handleStartAnalysis = async () => {
+    //     try {
+    //         if (!selectedPayload && !previewJson) return
+
+    //         setIsAnalyzing(true)
+
+    //         const json = selectedPayload || previewJson
+
+    //         const res = await axiosInstance.post("/analysis/start", {
+    //             payload: json,
+    //         })
+
+    //         setAnalysisResult(res.data)
+    //         setPreviewJson(null)
+
+    //         toast.success(t("upload.toast.success"))
+    //     } catch (err) {
+    //         const msg =
+    //             err?.response?.data?.message ||
+    //             err?.message ||
+    //             t("upload.toast.failed")
+
+    //         toast.error(msg)
+    //     } finally {
+    //         setIsAnalyzing(false)
+    //     }
+    // }
+
+
     const handleStartAnalysis = async () => {
         try {
-            if (!selectedPayload && !previewJson) return
+            if (!selectedPayload && !previewJson) return;
 
-            setIsAnalyzing(true)
+            const json = selectedPayload || previewJson;
 
-            const json = selectedPayload || previewJson
+            const interviews = json.data.reviewChecklists.interviews;
 
-            const res = await axiosInstance.post("/analysis/start", {
-                payload: json,
-            })
+            console.log('JSON', interviews);
+            console.log("id PYALOAD", payloadId);
 
-            setAnalysisResult(res.data)
-            setPreviewJson(null)
-
-            toast.success(t("upload.toast.success"))
+            navigate("/dashboard/upload/ai-analyzing", {
+                state: {
+                    payload: interviews,
+                    payloadId: payloadId,
+                },
+            });
         } catch (err) {
             const msg =
                 err?.response?.data?.message ||
                 err?.message ||
-                t("upload.toast.failed")
+                t("upload.toast.failed");
 
-            toast.error(msg)
-        } finally {
-            setIsAnalyzing(false)
+            toast.error(msg);
         }
-    }
+    };
+
+
 
     const handleConfirmDelete = async () => {
         await deletePayload(deleteTarget.id)
@@ -281,7 +316,7 @@ export default function UploadPage() {
                                     year: "numeric",
                                     hour: "2-digit",
                                     minute: "2-digit",
-                                    hour12: true, 
+                                    hour12: true,
                                 })
 
 
