@@ -17,36 +17,36 @@
         }
       }
     },
-    "landing": {
-      "products": {
-        "title": "SIAS Key Features",
-        "subtitle": "AI-powered tools to automate interview processing and assessment with clear, human-readable insights.",
-        "items": {
-          "product1": {
-            "title": "STT + Diarization",
-            "badge": "AI Transcription",
-            "description": "Automatic transcription and speaker separation for every interview session, directly from audio or video recordings.",
-            "metric": "±1s word timing with clear speaker labels"
-          },
-          "product2": {
-            "title": "Assessment AI",
-            "badge": "AI Scoring",
-            "description": "Automatically evaluates candidate answers with scores, reasoning, and insights that are easy to understand for HR and assessors.",
-            "metric": "Standardized scoring with transparent explanations"
-          },
-          "product3": {
-            "title": "Responsive & Clean UI",
-            "badge": "Review Friendly",
-            "description": "A modern, lightweight dashboard that is mobile-friendly and designed for fast, focused, and comfortable review sessions.",
-            "metric": "Optimized for both desktop and mobile review"
-          }
-        }
-      }
-    },
     "howuse": "How to Use",
     "about": "About Us",
     "login": "Login",
     "signup": "Sign Up"
+  },
+  "landing": {
+    "products": {
+      "title": "SIAS Key Features",
+      "subtitle": "AI-powered tools to automate interview processing and assessment with clear, human-readable insights.",
+      "items": {
+        "product1": {
+          "title": "STT + Diarization",
+          "badge": "AI Transcription",
+          "description": "Automatic transcription and speaker separation for every interview session, directly from audio or video recordings.",
+          "metric": "±1s word timing with clear speaker labels"
+        },
+        "product2": {
+          "title": "Assessment AI",
+          "badge": "AI Scoring",
+          "description": "Automatically evaluates candidate answers with scores, reasoning, and insights that are easy to understand for HR and assessors.",
+          "metric": "Standardized scoring with transparent explanations"
+        },
+        "product3": {
+          "title": "Responsive & Clean UI",
+          "badge": "Review Friendly",
+          "description": "A modern, lightweight dashboard that is mobile-friendly and designed for fast, focused, and comfortable review sessions.",
+          "metric": "Optimized for both desktop and mobile review"
+        }
+      }
+    }
   },
   "hero": {
     "thisApp": "SIAS",
