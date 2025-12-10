@@ -7,7 +7,7 @@ Documentation Tamplate
 ## Instalation
 
 ```
-git pull https://github.com/Sias-AI-Interview/Frontend-Web.git
+git clone https://github.com/Sias-AI-Interview/Frontend-Web.git
 ```
 
 Go to the Directory
