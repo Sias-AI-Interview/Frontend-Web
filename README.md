@@ -43,37 +43,46 @@ mkdir -p src/{assets,components,hooks,libs,servers,validations}
 ---
 
 ### state management
-``` pnpm add zustand 
+``` 
+pnpm add zustand 
 ```
 
 ### data fetching & caching
-``` pnpm add @tanstack/react-query
+``` 
+pnpm add @tanstack/react-query
 ```
 
 ### forms + validation
-``` pnpm add react-hook-form yup @hookform/resolvers
+``` 
+pnpm add react-hook-form yup @hookform/resolvers
 ```
 
 ### routing
-``` pnpm add react-router-dom
+``` 
+pnpm add react-router-dom
 ```
 
 ### animation
-``` pnpm add @react-spring/web
+``` 
+pnpm add @react-spring/web
 ```
 
 ### UI Component & Styling
-``` pnpm add @tailwindcss
+``` 
+pnpm add @tailwindcss
 ```
 
-``` npx shadcn@latest add skeleton
+``` 
+npx shadcn@latest add skeleton
 ```
 
 ### testing
-``` pnpm add -D vitest jsdom @testing-library/react @testing-library/jest-dom
+``` 
+pnpm add -D vitest jsdom @testing-library/react @testing-library/jest-dom
 ```
 
 ### storybook
-``` pnpm add -D storybook @storybook/react @storybook/addon-actions @storybook/addon-essentials
+``` 
+pnpm add -D storybook @storybook/react @storybook/addon-actions @storybook/addon-essentials
 ```
 
