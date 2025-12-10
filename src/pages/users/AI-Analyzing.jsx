@@ -41,11 +41,30 @@ const stageConfig = {
 };
 
 
+const SPEAKER_COLORS = [
+    "border-green-400/30 text-green-400",
+    "border-blue-400/30 text-blue-400",
+    "border-yellow-400/30 text-yellow-400",
+    "border-pink-400/30 text-pink-400",
+    "border-purple-400/30 text-purple-400",
+];
+
+
 const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60)
     const secs = Math.floor(seconds % 60)
     return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
 }
+
+const getSpeakerColorClass = (speaker, fallbackIndex) => {
+    if (!speaker) return SPEAKER_COLORS[fallbackIndex % SPEAKER_COLORS.length];
+
+    // Exam "SPEAKER_00", "SPEAKER_01"
+    const match = speaker.match(/(\d+)/);
+    const idx = match ? parseInt(match[1], 10) : fallbackIndex;
+    return SPEAKER_COLORS[idx % SPEAKER_COLORS.length];
+};
+
 
 export default function AnalyzingPage() {
     const location = useLocation();
@@ -94,8 +113,8 @@ export default function AnalyzingPage() {
     const [queuePosition, setQueuePosition] = useState(1);
     const [allComplete, setAllComplete] = useState(false);
 
-    const currentVideo = videoResults[currentVideoIndex];
-    const allVideoUrls = videoQueue.map(v => v.driveUrl);
+    // const currentVideo = videoResults[currentVideoIndex];
+    // const allVideoUrls = videoQueue.map(v => v.driveUrl);
     const overallProgress =
         (videoResults.filter((v) => v.status === "done").length / videoResults.length) *
         100 || 0;
@@ -161,7 +180,7 @@ export default function AnalyzingPage() {
                     return updated;
                 });
 
-                return; 
+                return;
             }
 
             const finalData = item.result || {};
@@ -581,6 +600,34 @@ export default function AnalyzingPage() {
                                                         </p>
                                                     </div>
 
+
+                                                    {/* Speakers Overview */}
+                                                    {Array.isArray(video.speakers) && video.speakers.length > 0 && (
+                                                        <div>
+                                                            <p className="text-[10px] font-medium text-[#6EACDA]/60 mb-1.5">
+                                                                Speakers ({video.speakers.length})
+                                                            </p>
+
+                                                            <div className="flex flex-wrap gap-1.5">
+                                                                {video.speakers.map((sp, idx) => (
+                                                                    <Badge
+                                                                        key={sp.speaker ?? idx}
+                                                                        variant="outline"
+                                                                        className={`text-[9px] py-0.5 px-1.5 ${getSpeakerColorClass(sp.speaker, idx)}`}
+                                                                    >
+                                                                        <span className="font-semibold mr-1">
+                                                                            {sp.speaker || `Speaker ${idx + 1}`}
+                                                                        </span>
+                                                                        <span className="text-[9px] text-[#6EACDA]/70">
+                                                                            {formatTime(sp.total_duration || 0)}
+                                                                        </span>
+                                                                    </Badge>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+
                                                     {/* Segments */}
                                                     <div>
                                                         <p className="text-[10px] font-medium text-[#6EACDA]/60 mb-1.5">
@@ -641,8 +688,7 @@ export default function AnalyzingPage() {
                                 >
                                     Continue to Assessment
                                 </Button>
-
-                                <Button
+                                {/* <Button
                                     variant="outline"
                                     className="h-8 text-xs border-[#1e3a5f] text-[#6EACDA] hover:bg-[#1e3a5f] bg-transparent"
                                     onClick={() => {
@@ -656,7 +702,7 @@ export default function AnalyzingPage() {
                                     }}
                                 >
                                     <Download className="w-3 h-3 mr-1" /> Export All
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     )}

@@ -48,11 +48,14 @@ export const useUploadStore = create((set, get) => ({
                 payloadDetail: res.data?.data || null,
                 payloadDetailLoading: false,
             })
+
+            console.log("Payload Detail:", res.data?.data)
         } catch (err) {
             set({
                 payloadDetail: null,
                 payloadDetailLoading: false,
             })
+            console.error(err)
         }
     },
     deletePayload: async (id) => {

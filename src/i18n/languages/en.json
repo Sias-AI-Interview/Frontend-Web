@@ -1,11 +1,46 @@
 {
   "navbar": {
     "products": {
-      "title": "Products",
+      "title": "Our Products",
       "items": {
-        "product1": "Product 1",
-        "product2": "Product 2",
-        "product3": "Product 3"
+        "product1": {
+          "title": "STT + Diarization",
+          "description": "Automatic transcription and speaker separation for every interview session, directly from audio or video recordings."
+        },
+        "product2": {
+          "title": "AI Assessment",
+          "description": "Automated candidate answer evaluation with scoring, explanations, and insights that are easy for HR and assessors to understand."
+        },
+        "product3": {
+          "title": "Responsive & Clean UI",
+          "description": "A modern, lightweight, mobile-friendly dashboard designed for a fast and seamless review experience."
+        }
+      }
+    },
+    "landing": {
+      "products": {
+        "title": "SIAS Key Features",
+        "subtitle": "AI-powered tools to automate interview processing and assessment with clear, human-readable insights.",
+        "items": {
+          "product1": {
+            "title": "STT + Diarization",
+            "badge": "AI Transcription",
+            "description": "Automatic transcription and speaker separation for every interview session, directly from audio or video recordings.",
+            "metric": "±1s word timing with clear speaker labels"
+          },
+          "product2": {
+            "title": "Assessment AI",
+            "badge": "AI Scoring",
+            "description": "Automatically evaluates candidate answers with scores, reasoning, and insights that are easy to understand for HR and assessors.",
+            "metric": "Standardized scoring with transparent explanations"
+          },
+          "product3": {
+            "title": "Responsive & Clean UI",
+            "badge": "Review Friendly",
+            "description": "A modern, lightweight dashboard that is mobile-friendly and designed for fast, focused, and comfortable review sessions.",
+            "metric": "Optimized for both desktop and mobile review"
+          }
+        }
       }
     },
     "howuse": "How to Use",

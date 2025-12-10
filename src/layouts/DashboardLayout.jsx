@@ -45,7 +45,7 @@ const manageNavItems = {
     title: "Manage",
     items: [
         { title: "Assesment Result", to: "/dashboard/assesment-result", icon: HiOutlineUserGroup },
-        { title: "Reports", to: "/dashboard/reports", icon: HiOutlineChartBar },
+        // { title: "Reports", to: "/dashboard/reports", icon: HiOutlineChartBar },
     ],
 }
 

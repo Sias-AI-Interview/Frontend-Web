@@ -8,6 +8,7 @@ import PricingSection from "../components/section/PricingSection";
 import CTASection from "../components/section/CTASection";
 import React from "react";
 import FloatingIconsUI from "../components/animated/Feature";
+import ProductsFeatureSection from "@/components/section/ProductsFeatureSection";
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
             <HeroSection />
             <StatsSection />
             <FeaturesSection />
+            <ProductsFeatureSection />
             <HowToUseSection />
             <FloatingIconsUI />
             <TestimonialsSection />

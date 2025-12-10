@@ -3,15 +3,50 @@
         "products": {
             "title": "Produk Kami",
             "items": {
-                "product1": "Produk 1",
-                "product2": "Produk 2",
-                "product3": "Produk 3"
+                "product1": {
+                    "title": "STT + Diarization",
+                    "description": "Transkripsi otomatis dan pemisahan pembicara untuk setiap sesi wawancara, langsung dari rekaman audio maupun video."
+                },
+                "product2": {
+                    "title": "Assessment AI",
+                    "description": "Penilaian jawaban kandidat secara otomatis dengan skor, penjelasan, dan insight yang mudah dipahami HR maupun assessor."
+                },
+                "product3": {
+                    "title": "Responsive & Clean UI",
+                    "description": "Dashboard modern yang ringan, mobile-friendly, dan dirancang untuk pengalaman review yang cepat dan nyaman."
+                }
             }
         },
         "howuse": "Cara Penggunaan",
         "about": "Tentang Kami",
         "login": "Masuk",
         "signup": "Daftar"
+    },
+    "landing": {
+        "products": {
+            "title": "Fitur Utama SIAS",
+            "subtitle": "Teknologi AI untuk membantu proses rekrutmen dan analisis wawancara secara otomatis, aman, dan mudah dipahami.",
+            "items": {
+                "product1": {
+                    "title": "STT + Diarization",
+                    "badge": "AI Transcription",
+                    "description": "Transkripsi otomatis dan pemisahan pembicara untuk setiap sesi wawancara, langsung dari rekaman audio maupun video.",
+                    "metric": "±1 detik sinkronisasi kata & speaker label yang jelas"
+                },
+                "product2": {
+                    "title": "Assessment AI",
+                    "badge": "AI Scoring",
+                    "description": "Penilaian jawaban kandidat secara otomatis dengan skor, alasan penilaian, dan insight yang mudah dibaca HR maupun assessor.",
+                    "metric": "Skor terstandardisasi dengan penjelasan yang transparan"
+                },
+                "product3": {
+                    "title": "Responsive & Clean UI",
+                    "badge": "Review Friendly",
+                    "description": "Dashboard modern yang ringan, mobile-friendly, dan dirancang untuk pengalaman review yang cepat, fokus, dan nyaman.",
+                    "metric": "Optimized untuk desktop & mobile review sessions"
+                }
+            }
+        }
     },
     "hero": {
         "thisApp": "SIAS",

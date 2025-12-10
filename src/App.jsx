@@ -13,12 +13,13 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import OauthCallback from "./pages/OauthCallback";
 import ProfilePage from "./pages/users/Profile";
 import UploadPage from "./pages/users/Upload";
-import ReportsPage from "./pages/users/Reports";
+// import ReportsPage from "./pages/users/Reports";
 import CandidatesPage from "./pages/users/Candidates";
 import SettingsPage from "./pages/users/Settings";
 import CandidateDetailPage from "./pages/users/CandidateDetails";
 import AnalyzingPage from "./pages/users/AI-Analyzing";
 import AssessmentPage from "./pages/users/AI-Assesment";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -84,11 +85,11 @@ export default function App() {
         </ProtectedRoute>
       } />
 
-      <Route path="/dashboard/reports" element={
+      {/* <Route path="/dashboard/reports" element={
         <ProtectedRoute>
           <ReportsPage />
         </ProtectedRoute>
-      } />
+      } /> */}
 
 
 
@@ -111,7 +112,7 @@ export default function App() {
       } />
 
 
-      <Route path="*" element={<Login />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
