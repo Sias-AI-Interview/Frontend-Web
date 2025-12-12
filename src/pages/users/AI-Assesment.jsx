@@ -26,15 +26,77 @@ import { useRef } from "react"
 
 function AnalyzingLoader() {
     return (
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col items-center min-h-screen justify-center gap-4">
             <div className="relative">
-                <Brain className="w-5 h-5 text-[#6EACDA] animate-pulse" />
+                <Brain className="w-72 h-72 text-[#6EACDA] animate-pulse" />
                 <div className="absolute -inset-1 rounded-full border border-[#6EACDA]/30 animate-ping" />
             </div>
-            <span className="text-xs text-[#6EACDA]">AI Analyzing...</span>
+
+            <div className="flex items-center gap-1">
+                <span className="text-3xl font-semibold text-[#6EACDA]">AI Analyzing</span>
+                <span className="flex text-3xl font-semibold text-[#6EACDA]">
+                    <span className="animate-bounce [animation-delay:0s]">.</span>
+                    <span className="animate-bounce [animation-delay:0.2s]">.</span>
+                    <span className="animate-bounce [animation-delay:0.4s]">.</span>
+                </span>
+            </div>
         </div>
     )
 }
+
+
+function DecisionNotes({ text }) {
+    if (!text) return null;
+
+    const lines = text.split("\n").filter(Boolean);
+    const chunks = [];
+    let bullets = [];
+
+    const flushBullets = () => {
+        if (bullets.length) {
+            chunks.push(
+                <ul
+                    key={`ul-${chunks.length}`}
+                    className="list-disc pr-4 my-1 text-left"
+                >
+                    {bullets.map((b, i) => (
+                        <li key={i}>{b.replace(/^-+\s*/, "")}</li>
+                    ))}
+                </ul>
+            );
+            bullets = [];
+        }
+    };
+
+    lines.forEach((l) => {
+        if (/:$/.test(l.trim())) {
+            flushBullets();
+            chunks.push(
+                <p key={`h-${chunks.length}`} className="font-semibold mt-2 text-left">
+                    {l.trim()}
+                </p>
+            );
+        } else if (/^-\s/.test(l.trim())) {
+            bullets.push(l);
+        } else {
+            flushBullets();
+            chunks.push(
+                <p key={`p-${chunks.length}`} className="mt-1 text-left">
+                    {l}
+                </p>
+            );
+        }
+    });
+
+    flushBullets();
+
+    return (
+        <div className="text-xs text-white w-full text-left whitespace-pre-line break-words overflow-hidden leading-relaxed tracking-normal m-0 p-0">
+            {chunks}
+        </div>
+    );
+}
+
 
 export default function AssessmentPage() {
     const location = useLocation()
@@ -370,7 +432,7 @@ export default function AssessmentPage() {
                                 disabled={completedAssessments < assessments.length}
                             >
                                 <Send className="w-3.5 h-3.5 mr-1.5" />
-                                Done Exit
+                                Assessment Summary
                             </Button>
                         </Link>
                     </div>
@@ -403,69 +465,77 @@ export default function AssessmentPage() {
                         <Card className="bg-[#0d1e30] border-[#1e3a5f] p-4">
                             <div className="flex flex-col gap-4">
                                 {/* USER ASSESSOR (outer assessorProfile) */}
-                                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                    <div className="flex items-center gap-3">
-                                        {userAssessorProfile?.photoUrl ? (
-                                            <img
-                                                src={userAssessorProfile.photoUrl}
-                                                alt={userAssessorProfile.name}
-                                                className="w-10 h-10 rounded-full border border-[#1e3a5f] object-cover"
-                                            />
-                                        ) : (
-                                            <div className="w-10 h-10 rounded-full bg-[#1e3a5f] flex items-center justify-center text-sm text-white">
-                                                {(userAssessorProfile?.name || "A")
-                                                    .charAt(0)
-                                                    .toUpperCase()}
+                                <div className="flex md:flex-row md:items-center md:justify-between gap-4">
+                                    <div className="flex flex-col gap-3">
+                                        <div className="flex items-center gap-3">
+                                            {userAssessorProfile?.photoUrl ? (
+                                                <img
+                                                    src={userAssessorProfile.photoUrl}
+                                                    alt={userAssessorProfile.name}
+                                                    className="w-10 h-10 rounded-full border border-[#1e3a5f] object-cover"
+                                                />
+                                            ) : (
+                                                <div className="w-10 h-10 rounded-full bg-[#1e3a5f] flex items-center justify-center text-sm text-white">
+                                                    {(userAssessorProfile?.name || "A")
+                                                        .charAt(0)
+                                                        .toUpperCase()}
+                                                </div>
+                                            )}
+
+
+                                            <div>
+                                                <p className="text-sm font-semibold text-white">
+                                                    {userAssessorProfile?.name || "Assessor"}
+                                                </p>
+                                                <p className="text-[11px] text-slate-400">
+                                                    ID: {userAssessorProfile?.id || "-"}
+                                                </p>
+                                                {reviewedAt && (
+                                                    <p className="text-[11px] text-slate-400">
+                                                        Reviewed at: {reviewedAt}
+                                                    </p>
+                                                )}
+                                                {queuePosition !== null && (
+                                                    <p className="text-[11px] text-slate-400">
+                                                        Queue position: {queuePosition}
+                                                    </p>
+                                                )}
+
                                             </div>
-                                        )}
-                                        <div>
-                                            <p className="text-sm font-semibold text-white">
-                                                {userAssessorProfile?.name || "Assessor"}
-                                            </p>
-                                            <p className="text-[11px] text-[#6EACDA]/60">
-                                                ID: {userAssessorProfile?.id || "-"}
-                                            </p>
-                                            {reviewedAt && (
-                                                <p className="text-[11px] text-[#6EACDA]/40">
-                                                    Reviewed at: {reviewedAt}
-                                                </p>
-                                            )}
-                                            {queuePosition !== null && (
-                                                <p className="text-[11px] text-[#6EACDA]/40">
-                                                    Queue position: {queuePosition}
-                                                </p>
-                                            )}
                                         </div>
+
+
+                                        {decisionNotes && (
+                                            <DecisionNotes text={decisionNotes} />
+                                        )}
                                     </div>
 
-                                    <div className="flex flex-col md:items-end gap-2">
+
+                                    <div className="flex flex-col md:self-end gap-2">
                                         {decision && (
                                             <Badge
                                                 variant="outline"
-                                                className={`text-xs border px-3 py-1 ${getDecisionBadgeClasses(
+                                                className={`text-base border px-4 py-2 ${getDecisionBadgeClasses(
                                                     decision
                                                 )}`}
                                             >
                                                 Decision: {decision}
                                             </Badge>
                                         )}
-                                        {decisionNotes && (
-                                            <p className="text-xs text-[#6EACDA]/80 max-w-md text-right">
-                                                {decisionNotes}
-                                            </p>
-                                        )}
+
                                         {mlCode !== null && (
-                                            <p className="text-[11px] text-[#6EACDA]/60">
+                                            <p className="text-[11px] text-white text-right">
                                                 Code: {mlCode}
                                             </p>
                                         )}
                                         {mlMessage && (
-                                            <p className="text-[11px] text-[#6EACDA]/60 text-right">
+                                            <p className="text-[11px] text-white text-right text-right">
                                                 Message: {mlMessage}
                                             </p>
                                         )}
                                     </div>
                                 </div>
+
 
                                 {/* ML ASSESSOR (inner data.assessorProfile) */}
                                 {mlAssessorProfile && (
@@ -490,7 +560,7 @@ export default function AssessmentPage() {
                                             <p className="text-xs text-white">
                                                 {mlAssessorProfile.name}
                                             </p>
-                                            <p className="text-[11px] text-[#6EACDA]/60">
+                                            <p className="text-[11px] text-white">
                                                 ID: {mlAssessorProfile.id}
                                             </p>
                                         </div>
@@ -530,20 +600,70 @@ export default function AssessmentPage() {
                         </Card>
                     )}
 
-                {/* RAW JSON VIEW – nampilin SEMUA JSON yang kamu minta */}
+                {/* RAW JSON VIEW */}
                 {rawMlResult && (
                     <Card className="bg-[#0d1e30] border-[#1e3a5f] p-4">
                         <div className="flex items-center gap-2 mb-2">
                             <Sparkles className="w-4 h-4 text-[#6EACDA]" />
                             <h4 className="text-xs font-semibold text-[#6EACDA]">
-                                Raw Assessment JSON
+                                Raw Assessment JSON (Formatted)
                             </h4>
                         </div>
-                        <pre className="text-[10px] text-[#e5e7eb] bg-black/30 rounded-md p-3 overflow-x-auto max-h-64">
-                            {JSON.stringify(rawMlResult, null, 2)}
+
+                        <pre className="text-[10px] text-[#e5e7eb] bg-black/30 rounded-md p-3 overflow-x-auto max-h-64 whitespace-pre-wrap break-words">
+                            {JSON.stringify(
+                                (() => {
+                                    const inner = rawMlResult?.data || {};
+                                    const assessor = rawMlResult?.assessorProfile || {};
+
+                                    const interviews =
+                                        inner?.reviewChecklistResult?.interviews?.scores?.map((s) => ({
+                                            id: s.id ?? 0,
+                                            score: s.score ?? 0,
+                                            reason: s.reason ?? "",
+                                        })) || [];
+
+                                    return {
+                                        assessorProfile: {
+                                            id: assessor.id ?? 0,
+                                            name: assessor.name ?? "",
+                                            photoUrl: assessor.photoUrl ?? "",
+                                        },
+                                        decision: inner.decision ?? "",
+                                        reviewedAt: inner.reviewedAt ?? "",
+                                        scoresOverview: {
+                                            project: inner.scoresOverview?.project ?? 0,
+                                            interview: inner.scoresOverview?.interview ?? 0,
+                                            total: inner.scoresOverview?.total ?? 0,
+                                        },
+                                        reviewChecklistResult: {
+                                            project: inner.reviewChecklistResult?.project ?? [],
+                                            interviews: {
+                                                minScore:
+                                                    inner.reviewChecklistResult?.interviews?.minScore ?? 0,
+                                                maxScore:
+                                                    inner.reviewChecklistResult?.interviews?.maxScore ?? 4,
+                                                scores: interviews.length > 0
+                                                    ? interviews
+                                                    : [
+                                                        { id: 1, score: 0, reason: "" },
+                                                        { id: 2, score: 0, reason: "" },
+                                                        { id: 3, score: 0, reason: "" },
+                                                        { id: 4, score: 0, reason: "" },
+                                                        { id: 5, score: 0, reason: "" },
+                                                    ],
+                                            },
+                                        },
+                                        notes: inner.notes ?? "",
+                                    };
+                                })(),
+                                null,
+                                2
+                            )}
                         </pre>
                     </Card>
                 )}
+
             </div>
 
             {/* ASSESSMENTS LIST */}
@@ -627,7 +747,7 @@ export default function AssessmentPage() {
                                     <div>
                                         <h4 className="text-xs font-medium text-[#6EACDA]/80 mb-2 flex items-center gap-1.5">
                                             <Sparkles className="w-3 h-3" />
-                                            Transcript Segments
+                                            AI Reasons
                                         </h4>
                                         <div className="space-y-2">
                                             {assessment.segments.map((segment) => (
@@ -728,65 +848,7 @@ export default function AssessmentPage() {
                                                             {assessment.aiReason}
                                                         </p>
 
-                                                        <div className="grid grid-cols-3 gap-3">
-                                                            {/* Strengths */}
-                                                            <div className="bg-green-400/5 border border-green-400/20 rounded-lg p-3">
-                                                                <h5 className="text-xs font-medium text-green-400 mb-2">
-                                                                    Strengths
-                                                                </h5>
-                                                                <ul className="list-disc ml-4 text-[10px] text-white/80 space-y-1">
-                                                                    {assessment.aiStrengths &&
-                                                                        assessment.aiStrengths.length >
-                                                                        0 ? (
-                                                                        assessment.aiStrengths.map(
-                                                                            (s, i) => (
-                                                                                <li key={i}>{s}</li>
-                                                                            )
-                                                                        )
-                                                                    ) : (
-                                                                        <li>-</li>
-                                                                    )}
-                                                                </ul>
-                                                            </div>
-                                                            {/* Weaknesses */}
-                                                            <div className="bg-red-400/5 border border-red-400/20 rounded-lg p-3">
-                                                                <h5 className="text-xs font-medium text-red-400 mb-2">
-                                                                    Weaknesses
-                                                                </h5>
-                                                                <ul className="list-disc ml-4 text-[10px] text-white/80 space-y-1">
-                                                                    {assessment.aiWeaknesses &&
-                                                                        assessment.aiWeaknesses.length >
-                                                                        0 ? (
-                                                                        assessment.aiWeaknesses.map(
-                                                                            (w, i) => (
-                                                                                <li key={i}>{w}</li>
-                                                                            )
-                                                                        )
-                                                                    ) : (
-                                                                        <li>-</li>
-                                                                    )}
-                                                                </ul>
-                                                            </div>
-                                                            {/* Suggestions */}
-                                                            <div className="bg-[#6EACDA]/5 border border-[#6EACDA]/20 rounded-lg p-3">
-                                                                <h5 className="text-xs font-medium text-[#6EACDA] mb-2">
-                                                                    Suggestions
-                                                                </h5>
-                                                                <ul className="list-disc ml-4 text-[10px] text-white/80 space-y-1">
-                                                                    {assessment.aiSuggestions &&
-                                                                        assessment.aiSuggestions.length >
-                                                                        0 ? (
-                                                                        assessment.aiSuggestions.map(
-                                                                            (s, i) => (
-                                                                                <li key={i}>{s}</li>
-                                                                            )
-                                                                        )
-                                                                    ) : (
-                                                                        <li>-</li>
-                                                                    )}
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>

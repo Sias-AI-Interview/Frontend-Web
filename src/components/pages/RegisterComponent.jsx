@@ -132,10 +132,8 @@ export default function RegisterPage() {
                     {/* Logo */}
                     <div className="text-center mb-8">
                         <Link to="/" className="inline-flex items-center gap-3">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6EACDA] to-[#2F66FF] flex items-center justify-center">
-                                <span className="text-white font-bold text-lg">S</span>
-                            </div>
-                            <span className="text-3xl font-bold text-white">SIAS</span>
+                            <img src='/images/logo/sias.svg?v=1' className="w-13" />
+                            <span className="font-cushion text-2xl font-semibold tracking-wide text-white">SIAS</span>
                         </Link>
 
                         <h1 className="mt-6 text-3xl font-bold text-white">

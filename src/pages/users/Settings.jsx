@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { Bell, Globe, Lock, Palette, Trash2, Download, CreditCard } from "lucide-react"
 import DashboardLayout from "@/layouts/DashboardLayout"
 import LanguageSwitcherUser from "@/components/translations/SwitcherUser"
+import { Brain } from "lucide-react"
 
 export default function SettingsPage() {
     const { t } = useTranslation()
@@ -23,7 +24,10 @@ export default function SettingsPage() {
 
     return (
         <DashboardLayout>
+
+
             <div className="space-y-6 p-8">
+
                 {/* Page Header */}
                 <div>
                     <h1 className="text-2xl font-bold text-white">{t("settings.title")}</h1>

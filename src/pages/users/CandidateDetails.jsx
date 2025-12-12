@@ -34,6 +34,8 @@ export default function CandidateDetailPage() {
     const { fetchPayloadDetail, payloadDetail, payloadDetailLoading } = useUploadStore()
 
     const [expandedVideo, setExpandedVideo] = useState(null)
+    const [isDownloading, setIsDownloading] = useState(false)
+
 
     useEffect(() => {
         if (id) {
@@ -158,54 +160,55 @@ export default function CandidateDetailPage() {
     }
 
     const handleDownloadJson = async () => {
+        setIsDownloading(true)
         try {
-            const response = await axiosInstance.get(
-                `/payload/export/${id}?format=json`,
-                {
-                    responseType: "blob",
-                }
-            );
+            const response = await axiosInstance.get(`/payload/export/${id}?format=json`, {
+                responseType: "blob",
+            })
 
-            const blob = new Blob([response.data], { type: "application/json" });
-            const url = window.URL.createObjectURL(blob);
+            const blob = new Blob([response.data], { type: "application/json" })
+            const url = window.URL.createObjectURL(blob)
 
-            const link = document.createElement("a");
-            link.href = url;
-            link.download = `assessment_${id}.json`;
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
+            const link = document.createElement("a")
+            link.href = url
+            link.download = `assessment_${id}.json`
+            document.body.appendChild(link)
+            link.click()
+            link.remove()
 
-            window.URL.revokeObjectURL(url);
+            window.URL.revokeObjectURL(url)
         } catch (err) {
-            console.error("failed to download json", err);
+            console.error("failed to download json", err)
+        } finally {
+            setIsDownloading(false)
         }
-    };
+    }
 
     const handleDownloadPdf = async () => {
+        setIsDownloading(true)
         try {
-            const response = await axiosInstance.get(
-                `/payload/export/${id}?format=pdf`,
-                {
-                    responseType: "blob",
-                }
-            );
+            const response = await axiosInstance.get(`/payload/export/${id}?format=pdf`, {
+                responseType: "blob",
+            })
 
-            const blob = new Blob([response.data], { type: "application/pdf" });
-            const url = window.URL.createObjectURL(blob);
+            const blob = new Blob([response.data], { type: "application/pdf" })
+            const url = window.URL.createObjectURL(blob)
 
-            const link = document.createElement("a");
-            link.href = url;
-            link.download = `assessment_${id}.pdf`;
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
+            const link = document.createElement("a")
+            link.href = url
+            link.download = `assessment_${id}.pdf`
+            document.body.appendChild(link)
+            link.click()
+            link.remove()
 
-            window.URL.revokeObjectURL(url);
+            window.URL.revokeObjectURL(url)
         } catch (err) {
-            console.error("failed to download pdf", err);
+            console.error("failed to download pdf", err)
+        } finally {
+            setIsDownloading(false)
         }
-    };
+    }
+
 
 
     return (
@@ -257,31 +260,37 @@ export default function CandidateDetailPage() {
                                     <DropdownMenuTrigger asChild>
                                         <Button
                                             variant="outline"
-                                            className="border-[#6EACDA]/30 text-[#6EACDA] hover:bg-[#6EACDA]/10 bg-transparent hover:text-slate-200 flex items-center gap-2"
+                                            disabled={isDownloading}
+                                            className="border-[#6EACDA]/30 text-[#6EACDA] hover:bg-[#6EACDA]/10 bg-transparent hover:text-slate-200 flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                                         >
                                             <Download className="h-4 w-4" />
-                                            Export Candidate Assessment
+                                            {isDownloading ? "Processing..." : "Export Candidate Assessment"}
                                             <ChevronDownIcon className="h-4 w-4" />
                                         </Button>
                                     </DropdownMenuTrigger>
+
                                     <DropdownMenuContent
                                         className="bg-[#021526] border-[#6EACDA]/30 text-white"
                                         align="end"
                                     >
                                         <DropdownMenuItem
-                                            className="cursor-pointer hover:bg-[#0a2a3f]"
+                                            disabled={isDownloading}
+                                            className="cursor-pointer hover:bg-[#0a2a3f] disabled:opacity-60 disabled:cursor-not-allowed"
                                             onClick={handleDownloadJson}
                                         >
-                                            Export as JSON
+                                            {isDownloading ? "Processing..." : "Export as JSON"}
                                         </DropdownMenuItem>
+
                                         <DropdownMenuItem
-                                            className="cursor-pointer hover:bg-[#0a2a3f]"
+                                            disabled={isDownloading}
+                                            className="cursor-pointer hover:bg-[#0a2a3f] disabled:opacity-60 disabled:cursor-not-allowed"
                                             onClick={handleDownloadPdf}
                                         >
-                                            Export as PDF
+                                            {isDownloading ? "Processing..." : "Export as PDF"}
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
+
 
                             </div>
                         </div>
@@ -701,10 +710,15 @@ export default function CandidateDetailPage() {
                                             {/* AI Notes */}
                                             {detail.notes && (
                                                 <div className="p-3 rounded-lg bg-[#021526] border border-[#6EACDA]/10">
-                                                    <p className="text-xs text-gray-400 mb-2">AI Notes</p>
-                                                    <p className="text-sm text-white">{detail.notes}</p>
+                                                    <p className="text-xs text-gray-400 mb-2 font-semibold tracking-wide uppercase">
+                                                        AI Notes
+                                                    </p>
+                                                    <p className="text-sm text-gray-200 whitespace-pre-line break-words leading-relaxed text-justify">
+                                                        {detail.notes}
+                                                    </p>
                                                 </div>
                                             )}
+
                                         </CardContent>
                                     </Card>
                                 )
@@ -809,7 +823,7 @@ export default function CandidateDetailPage() {
                                 <div>
                                     <p className="text-sm font-medium text-white mb-3">AI Notes</p>
                                     <div className="p-3 rounded-lg bg-[#021526] border border-[#6EACDA]/10">
-                                        <p className="text-sm text-white">
+                                        <p className="text-sm text-gray-200 whitespace-pre-line break-words leading-relaxed text-justify">
                                             {aiNotes || "AI did not provide additional notes."}
                                         </p>
                                     </div>

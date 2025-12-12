@@ -11,9 +11,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   const isProduction = env.VITE_APP_PROD === "TRUE";
-  const apiEndpoint = isProduction
-    ? env.VITE_API_ENDPOINT_URL_PROD
-    : env.VITE_API_ENDPOINT_URL;
+  const apiEndpoint = env.VITE_API_ENDPOINT_URL;
 
   return {
     plugins: [react(), tailwindcss()],
