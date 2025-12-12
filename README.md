@@ -5,7 +5,7 @@
 * Permasalahan ini diatasi melalui pengembangan **"AI-Powered Interview Assessment System"** yang dirancang untuk menganalisis jawaban verbal kandidat secara otomatis dan memberikan penilaian yang lebih cepat dan objektif.
 * Fokus utama penelitian ini adalah menyelidiki bagaimana sistem AI dapat menggantikan sebagian peran HR dalam menilai wawancara, menganalisis aspek verbal, serta faktor-faktor yang menentukan akurasi dan peningkatan efisiensi sistem tersebut.
 ---
-Documentation Tamplate
+Documentation Tamplates
 
 ---
 
