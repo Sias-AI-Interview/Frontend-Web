@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
           target: apiEndpoint,
           changeOrigin: true,
           secure: true,
-          rewrite: (p) => p,
+          // rewrite: (p) => p,
         },
       },
       historyApiFallback: true,
