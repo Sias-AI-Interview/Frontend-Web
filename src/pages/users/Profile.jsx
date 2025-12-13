@@ -137,8 +137,32 @@ export default function ProfilePage() {
 
 
     if (isLoading && !storedProfile.fullname) {
-        return <p className="text-white p-8">Loading profile...</p>;
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-[#0a2a3f]">
+                <div className="w-full max-w-md p-6 rounded-2xl border border-white/10 bg-[#021526] shadow-lg animate-pulse">
+
+                    {/* Avatar */}
+                    <div className="flex justify-center mb-6">
+                        <div className="h-20 w-20 rounded-full bg-white/10" />
+                    </div>
+
+                    {/* Name */}
+                    <div className="h-4 bg-white/10 rounded w-3/4 mx-auto mb-3" />
+
+                    {/* Email */}
+                    <div className="h-3 bg-white/10 rounded w-1/2 mx-auto mb-6" />
+
+                    {/* Buttons */}
+                    <div className="flex gap-3">
+                        <div className="h-10 flex-1 rounded-lg bg-white/10" />
+                        <div className="h-10 flex-1 rounded-lg bg-white/10" />
+                    </div>
+
+                </div>
+            </div>
+        );
     }
+
 
     return (
         <DashboardLayout>
