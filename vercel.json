@@ -4,5 +4,10 @@
       "source": "/api/(.*)",
       "destination": "https://tayo.life/api/$1"
     }
-  ]
+  ],
+  "functions": {
+    "api/**/*": {
+      "maxDuration": 300
+    }
+  }
 }

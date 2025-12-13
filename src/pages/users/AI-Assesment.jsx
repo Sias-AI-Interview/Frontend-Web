@@ -172,7 +172,7 @@ export default function AssessmentPage() {
         try {
             const res = await axiosInstance.post("assessment/get", {
                 payload_id: payloadId,
-                timeout: 360000, 
+                timeout: 30000, 
             });
 
             /** =======================
