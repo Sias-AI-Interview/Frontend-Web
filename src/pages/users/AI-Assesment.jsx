@@ -172,8 +172,7 @@ export default function AssessmentPage() {
         try {
             const res = await axiosInstance.post("assessment/get", {
                 payload_id: payloadId,
-                timeout: 30000, 
-            });
+            }, { timeout: 300000 });
 
             /** =======================
              *  NORMALISASI JSON BARU
