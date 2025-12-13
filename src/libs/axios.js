@@ -4,6 +4,7 @@ const axiosInstance = axios.create({
     // baseURL: import.meta.env.VITE_API_ENDPOINT_URL + "/api",
     baseURL: "/api",
     withCredentials: true,
+    timeout: 300000, 
     headers: {
         "Content-Type": "application/json",
     },
